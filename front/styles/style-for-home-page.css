@@ -1,0 +1,86 @@
+* {
+  user-select: none;
+}
+
+body {
+  margin: 0px;
+  background-image: url("../images/bg-image.jpg");
+  background-size: cover;
+}
+
+.header-style {
+  background-color: rgba(0, 0, 0, 0.374);
+  display: flex;
+  height: 90px;
+}
+
+.icon-logo-style {
+  margin-block: auto;
+  margin-left: 3%;
+  height: 74px;
+}
+
+.name-style {
+  font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32pt;
+  text-decoration: underline;
+  color: white;
+  margin-block: auto;
+  margin-left: 2%;
+}
+
+.menu-area-style {
+  margin-left: 30%;
+  margin-block: auto;
+}
+
+.menu-text-style {
+  text-decoration: none;
+  font-family: Arial;
+  font-size: 20pt;
+  font-weight: 800;
+  color: white;
+  margin-block: auto;
+  margin-inline: 42px;
+  transition: all;
+  transition: 100ms;
+}
+
+.menu-text-style:hover {
+  transition: all;
+  transition: 100ms;
+  font-weight: 800;
+  color: rgba(28, 72, 152, 1);
+  margin-block: auto;
+  margin-inline: 42px;
+}
+
+.text-area {
+  background-color: rgba(0, 0, 0, 0.374);
+  margin-top: 5%;
+  margin-left: 5%;
+  height: 260px;
+  width: 42%;
+}
+
+.big-name-style {
+  font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 70pt;
+  text-decoration: underline;
+  color: white;
+  margin-block: auto;
+  margin-left: 2%;
+}
+
+.text-style {
+  font-family: Arial;
+  font-size: 20pt;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.6);
+  margin-inline: 20px;
+  width: 65%;
+}
