@@ -1,0 +1,102 @@
+.price-info-area {
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 40px 10px rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.692);
+  margin-inline: auto;
+  margin-top: 3%;
+  height: 740px;
+  width: 90%;
+}
+
+.name-tag-area {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.name-tag-shadow {
+  margin-inline: auto;
+  position: relative;
+  top: 30px;
+  height: 0px;
+  box-shadow: 0px 0px 30px 10px rgba(28, 72, 152, 1);
+}
+
+.name-tag {
+  position: relative;
+  top: -25px;
+  font-family: Arial;
+  font-size: 30pt;
+  font-weight: 800;
+  color: white;
+}
+
+.price-table-area {
+  display: flex;
+}
+
+.name-price-area {
+  margin: 20px;
+}
+
+.name-classic-price-shadow {
+  margin-inline: auto;
+  position: relative;
+  top: 30px;
+  height: 0px;
+  width: 200px;
+  box-shadow: 0px 0px 30px 10px rgba(28, 72, 152, 1);
+}
+.name-price {
+  position: relative;
+  top: -30px;
+  font-family: Arial;
+  font-size: 30pt;
+  font-weight: 800;
+  color: white;
+}
+
+.classic-price-area {
+  height: 671px;
+  width: 400px;
+  margin-left: 135px;
+  margin-right: 157px;
+  margin-top: 100px;
+}
+
+.img-classic-area {
+  box-shadow: 0px 0px 30px 1px rgba(28, 72, 152, 1);
+  margin-top: 100px;
+  border-radius: 50px;
+  height: 470px;
+  width: 400px;
+}
+.img-classic {
+  border-radius: 50px;
+  font-family: Arial;
+  font-size: 30pt;
+  font-weight: 800;
+  color: white;
+  background-image: url(../images/default-zone-pc.jpg);
+  background-size: 400px;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  align-items: center;
+}
+.price-text {
+  margin-inline: auto;
+}
+.comfort-price-area {
+}
+.img-comfort-area {
+}
+.img-comfort {
+}
+.pro-price-area {
+}
+.img-pro-area {
+}
+.img-pro {
+}

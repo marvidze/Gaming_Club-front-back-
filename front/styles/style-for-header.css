@@ -1,17 +1,17 @@
-.header {
+.header_area {
   background-color: rgba(0, 0, 0, 0.374);
   display: flex;
   height: 90px;
 }
 
-.icon-logo {
+.header_icon-logo {
   position: relative;
   top: -35px;
   left: -33px;
   height: 74px;
 }
 
-.icon-logo-area {
+.header_icon-logo-area {
   align-content: center;
   align-items: center;
   width: 5px;
@@ -22,14 +22,14 @@
   margin-left: 3%;
 }
 
-.name-club-area {
+.header_name-club-area {
   box-shadow: 0px 0px 50px 15px rgba(28, 72, 152, 1);
   height: 0px;
   margin-block: auto;
   margin-left: 5%;
 }
 
-.name-club {
+.header_name-club {
   position: relative;
   top: -30px;
   font-family: "Bungee Inline", sans-serif;
@@ -40,20 +40,20 @@
   color: white;
 }
 
-.menu-area {
+.header_menu-area {
   display: flex;
   margin-left: 30%;
   margin-block: auto;
 }
 
-.menu-text-area {
+.header_menu-text-area {
   height: 0px;
   box-shadow: 0px 0px 50px 10px rgba(28, 72, 152, 1);
   margin-block: auto;
   margin-inline: 42px;
 }
 
-.menu-text {
+.header_menu-text {
   position: relative;
   top: -15px;
   text-decoration: none;
@@ -65,7 +65,7 @@
   transition: 100ms;
 }
 
-.menu-text:hover {
+.header_menu-text:hover {
   transition: all;
   transition: 100ms;
   font-weight: 800;
