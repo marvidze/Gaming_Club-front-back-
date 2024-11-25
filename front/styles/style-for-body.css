@@ -1,0 +1,9 @@
+* {
+  user-select: none;
+}
+
+body {
+  margin: 0px;
+  background-image: url("../images/bg-image.jpg");
+  background-size: cover;
+}
