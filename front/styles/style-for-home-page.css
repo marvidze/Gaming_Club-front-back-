@@ -8,64 +8,81 @@ body {
   background-size: cover;
 }
 
-.header-style {
+.header {
   background-color: rgba(0, 0, 0, 0.374);
   display: flex;
   height: 90px;
 }
 
-.icon-logo-style {
-  margin-block: auto;
-  margin-left: 3%;
+.icon-logo {
+  position: relative;
+  top: -35px;
+  left: -33px;
   height: 74px;
 }
 
-.name-style {
+.icon-logo-area {
+  align-content: center;
+  align-items: center;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  box-shadow: 0px 0px 50px 25px rgba(28, 72, 152, 1);
+  margin-block: auto;
+  margin-left: 3%;
+}
+
+.name-club-area {
+  box-shadow: 0px 0px 50px 15px rgba(28, 72, 152, 1);
+  height: 0px;
+  margin-block: auto;
+  margin-left: 5%;
+}
+
+.name-club {
+  position: relative;
+  top: -30px;
   font-family: "Bungee Inline", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 32pt;
   text-decoration: underline;
   color: white;
-  margin-block: auto;
-  margin-left: 2%;
 }
 
-.menu-area-style {
+.menu-area {
+  display: flex;
   margin-left: 30%;
   margin-block: auto;
 }
 
-.menu-text-style {
+.menu-text-area {
+  height: 0px;
+  box-shadow: 0px 0px 50px 10px rgba(28, 72, 152, 1);
+  margin-block: auto;
+  margin-inline: 42px;
+}
+
+.menu-text {
+  position: relative;
+  top: -15px;
   text-decoration: none;
   font-family: Arial;
   font-size: 20pt;
   font-weight: 800;
   color: white;
-  margin-block: auto;
-  margin-inline: 42px;
   transition: all;
   transition: 100ms;
 }
 
-.menu-text-style:hover {
+.menu-text:hover {
   transition: all;
   transition: 100ms;
   font-weight: 800;
   color: rgba(28, 72, 152, 1);
-  margin-block: auto;
-  margin-inline: 42px;
 }
 
-.text-area {
-  background-color: rgba(0, 0, 0, 0.374);
-  margin-top: 5%;
-  margin-left: 5%;
-  height: 260px;
-  width: 42%;
-}
-
-.big-name-style {
+.big-name {
   font-family: "Bungee Inline", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -76,7 +93,24 @@ body {
   margin-left: 2%;
 }
 
-.text-style {
+.text-area {
+  border-radius: 20px;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.374);
+  margin-top: 5%;
+  margin-left: 5%;
+  height: 260px;
+  width: 42%;
+}
+
+.text-blur-area {
+  border-radius: 20px;
+  backdrop-filter: blur(3px);
+  height: 100%;
+  width: 100%;
+}
+
+.text-about-club {
   font-family: Arial;
   font-size: 20pt;
   font-weight: bold;
