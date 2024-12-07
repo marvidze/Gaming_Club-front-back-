@@ -3,10 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/account-page/main_account-page.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/account-page/main_account-page.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap"
+      rel="stylesheet"
+    />
     <title>Sign in</title>
   </head>
   <body>
@@ -38,13 +44,18 @@
                 <h1 class="title">Sign in</h1>
 
                 <div class="input-box">
-                  <input type="email" required />
+                  <input name="login" type="email" required />
                   <span>Email</span>
                   <i></i>
                 </div>
 
                 <div class="input-box">
-                  <input type="password" minlength="8" required />
+                  <input
+                    name="password"
+                    type="password"
+                    minlength="8"
+                    required
+                  />
                   <span>Password</span>
                   <i></i>
                 </div>
@@ -61,19 +72,24 @@
                 <h1 class="title">Sign up</h1>
 
                 <div class="input-box">
-                  <input type="email" required />
+                  <input name="login" type="email" required />
                   <span>Email</span>
                   <i></i>
                 </div>
 
                 <div class="input-box">
-                  <input type="password" minlength="8" required />
+                  <input name="email" type="password" minlength="8" required />
                   <span>Password</span>
                   <i></i>
                 </div>
 
                 <div class="input-box">
-                  <input type="password" minlength="8" required />
+                  <input
+                    name="repeatPassword"
+                    type="password"
+                    minlength="8"
+                    required
+                  />
                   <span>Repeat password</span>
                   <i></i>
                 </div>
@@ -90,5 +106,6 @@
       </section>
     </main>
     <script src=".././scripts/account-page.js"></script>
+    <script src=".././scripts/form-register-sign-in.js"></script>
   </body>
 </html>
