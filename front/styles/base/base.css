@@ -18,3 +18,12 @@ body {
 .hide {
   display: none !important;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -webkit-text-fill-color: initial !important;
+  transition: background-color 5000s ease-in-out 0s;
+}

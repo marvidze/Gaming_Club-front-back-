@@ -1,10 +1,9 @@
-const url =
-  "http://localhost:8080/JavaLaba5/PcClub_Api/src/main/java/com/example/PcClub/Controllers/AuthController.java";
+const url = "http://localhost:8080/JavaLaba5/PcClub_Api/src/main/java/com/example/PcClub/Controllers/AuthController.java";
 
 const signInFormElement = document.querySelector(".form-login");
 const registerFormElement = document.querySelector(".form-reg");
 
-signInFormElement.addEventListener("submit", (event) => {
+signInFormElement.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const formData = new FormData(signInFormElement);
@@ -24,4 +23,14 @@ signInFormElement.addEventListener("submit", (event) => {
     .then((json) => {
       console.log("json: ", json);
     });
+
+  //or
+
+  const response = await fetch(url, {
+    method: "POST",
+    body: JSON.stringify({
+      ...formDataObject,
+    }),
+  });
+  const result = await response.json();
 });

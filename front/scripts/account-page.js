@@ -4,14 +4,14 @@ const logForm = document.querySelector(".form-login");
 const regForm = document.querySelector(".form-reg");
 let box = document.querySelector(".box");
 
-btn_reg.onclick = ()=> {
-    box.classList.add("active");
-    logForm.classList.add("hide");
-    regForm.classList.remove("hide");
-}
+btn_reg.onclick = () => {
+  box.classList.add("active");
+  logForm.classList.add("hide");
+  regForm.classList.remove("hide");
+};
 
-btn_log.onclick = ()=> {
-    box.classList.remove("active");
-    logForm.classList.remove("hide");
-    regForm.classList.add("hide");
-}
+btn_log.onclick = () => {
+  box.classList.remove("active");
+  logForm.classList.remove("hide");
+  regForm.classList.add("hide");
+};
