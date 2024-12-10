@@ -37,19 +37,16 @@ public class AuthService {
         UserDetails userDetails = userService.loadUserByUsername(authRequest.getLogin());
         String token = jwtTokenUtils.generateToken(userDetails);
 
-        return ResponseEntity.ok(new JwtResponse(token));
+        return ResponseEntity.ok(new JwtResponse(HttpStatus.OK.value(), token));
     }
 
     public ResponseEntity<?> createNewUser(@RequestBody RegistrationUserDto registrationUserDto) {
-        if (!registrationUserDto.getPassword().equals(registrationUserDto.getConfirmPassword())) {
-            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Пароли не совпадают"),
-                    HttpStatus.BAD_REQUEST);
-        }
         if (userService.findByLogin(registrationUserDto.getLogin()).isPresent()) {
             return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(),
                     "Пользователь с указанным именем уже существует"), HttpStatus.BAD_REQUEST);
         }
         User user = userService.createNewUser(registrationUserDto);
+
         return ResponseEntity.ok(
                 new UserDto(
                         user.getId(),
