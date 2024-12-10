@@ -16,6 +16,7 @@ signInFormElement.addEventListener("submit", async (event) => {
       ...formDataObject,
     }),
   });
+
   const result = await response.json();
 });
 
