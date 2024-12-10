@@ -3,32 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/account-page/main_account-page.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/account-page/main_account-page.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap"
+      rel="stylesheet"
+    />
     <title>Sign in</title>
   </head>
   <body>
-    <header class="header_area">
-      <div class="header_icon-logo-area">
-        <img src="../images/icons/icon-club.png" class="header_icon-logo" />
-      </div>
-      <div class="header_name-club-area">
-        <div class="header_name-club">IT GAMER CLUB</div>
-      </div>
-      <div class="header_menu-area">
-        <div class="header_menu-text-area">
-          <a class="header_menu-text" href=".././index.html">ГЛАВНАЯ</a>
-        </div>
-        <div class="header_menu-text-area">
-          <a class="header_menu-text" href="./account-page.html">АККАУНТ</a>
-        </div>
-        <div class="header_menu-text-area">
-          <a class="header_menu-text" href="./price-page.html">ЦЕНЫ</a>
-        </div>
-      </div>
-    </header>
+    <div id="header"></div>
     <main>
       <section class="login">
         <div class="container">
@@ -44,7 +32,12 @@
                 </div>
 
                 <div class="input-box">
-                  <input name="password" type="password" minlength="8" required />
+                  <input
+                    name="password"
+                    type="password"
+                    minlength="8"
+                    required
+                  />
                   <span>Password</span>
                   <i></i>
                 </div>
@@ -73,7 +66,12 @@
                 </div>
 
                 <div class="input-box">
-                  <input name="repeatPassword" type="password" minlength="8" required />
+                  <input
+                    name="repeatPassword"
+                    type="password"
+                    minlength="8"
+                    required
+                  />
                   <span>Repeat password</span>
                   <i></i>
                 </div>
@@ -91,5 +89,6 @@
     </main>
     <script src=".././scripts/account-page.js"></script>
     <script src=".././scripts/form-register-sign-in.js"></script>
+    <script src="../scripts/header-component.js"></script>
   </body>
 </html>
