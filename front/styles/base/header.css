@@ -1,3 +1,17 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.header_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 10px;
+  padding-inline: 50px;
+}
+
 .header_area {
   background-color: rgba(0, 0, 0, 0.374);
   display: flex;
@@ -11,22 +25,30 @@
   height: 74px;
 }
 
-.header_icon-logo-area {
+.header_logo-area {
+  height: 100%;
+  width: 500px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.header_icon-logo-shadow {
   align-content: center;
   align-items: center;
   width: 5px;
   height: 5px;
+  margin-left: 50px;
   border-radius: 100%;
   box-shadow: 0px 0px 50px 25px rgba(28, 72, 152, 1);
   margin-block: auto;
-  margin-left: 3%;
 }
 
 .header_name-club-area {
   box-shadow: 0px 0px 50px 15px rgba(28, 72, 152, 1);
   height: 0px;
   margin-block: auto;
-  margin-left: 5%;
+  margin-left: 70px;
 }
 
 .header_name-club {
@@ -40,32 +62,95 @@
   color: white;
 }
 
-.header_menu-area {
+.header_menu-area-list {
   display: flex;
-  margin-left: 30%;
-  margin-block: auto;
+  list-style-type: none;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
-.header_menu-text-area {
+.header_menu-item-area {
   height: 0px;
   box-shadow: 0px 0px 50px 10px rgba(28, 72, 152, 1);
   margin-block: auto;
   margin-inline: 42px;
+  transition: 1.2s;
 }
 
-.header_menu-text {
+.header_menu-item {
   position: relative;
   top: -15px;
-  text-decoration: none;
   font-family: Arial;
   font-size: 20pt;
   font-weight: 800;
+  transition: all;
+  transition: 100ms;
   color: white;
+}
+
+.header_remove-button {
+  outline: none;
+  border: 0;
+  background: transparent;
+}
+
+.header_menu-item:hover {
+  transition: all;
+  transition: 100ms;
+  font-weight: 800;
+  color: rgba(28, 72, 152, 1);
+}
+
+.header_dropdown-menu {
+  width: 250px;
+  padding-inline: 45px;
+  padding-block: 5px;
+  position: absolute;
+  right: 0;
+  top: -390px;
+  right: 0px;
+  transition: 1.2s;
+}
+
+.header_open {
+  transform: translateY(490px);
+}
+
+.header_btn-open {
+  transform: translateY(360px);
+}
+
+.header_dropdown-menu-list {
+  list-style-type: none;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.header_dropdonw-menu-item-area {
+  text-align: center;
+  height: 40px;
+  margin-block-start: 30px;
+}
+
+.header_dropdown-menu-item-shadow {
+  width: 130px;
+  height: 0px;
+  box-shadow: 0px 0px 50px 10px rgba(28, 72, 152, 1);
+}
+
+.header_dropdonw-menu-item {
+  position: relative;
+  top: -15px;
+  font-family: Arial;
+  font-size: 15pt;
+  font-weight: 800;
   transition: all;
   transition: 100ms;
 }
 
-.header_menu-text:hover {
+.header_dropdonw-menu-item:hover {
   transition: all;
   transition: 100ms;
   font-weight: 800;
