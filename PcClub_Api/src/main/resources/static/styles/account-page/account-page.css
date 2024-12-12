@@ -60,9 +60,9 @@
   z-index: 10;
 }
 
-
-
 .input-box span {
+  font-family: Arial;
+  font-weight: bold;
   position: absolute;
   left: 0;
   padding: 20px 0px 10px;
@@ -104,6 +104,8 @@
 }
 
 .link-box a {
+  font-family: Arial;
+  font-weight: bold;
   margin: 10px 0;
   font-size: 0.75em;
   color: #8f8f8f;
