@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 // const getUserRole = async () => {
 //   const response = await fetch(url, {
 //     method: "POST",

@@ -3,6 +3,10 @@ a {
   color: white;
 }
 
+#button {
+  cursor: pointer;
+}
+
 .header_container {
   width: 100%;
   display: flex;
