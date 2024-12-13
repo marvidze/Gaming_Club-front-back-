@@ -81,7 +81,7 @@ header.insertAdjacentHTML(
           <div>
             <nav>
               <ul class="header_menu-area-list">
-                <li class="header_menu-item-area">
+                <li id="home-page" class="header_menu-item-area">
                   <a class="header_menu-item" href=${
                     document.URL.includes("index") ? "" : "../index.html"
                   }
@@ -143,15 +143,18 @@ header.insertAdjacentHTML(
 const buttonMenu = document.getElementById("button");
 const headerMenu = document.getElementById("header-menu");
 const btnAnimate = document.getElementById("btn-animate");
+const btnAnimateHomePage = document.getElementById("home-page");
 
 document.addEventListener("DOMContentLoaded", () => {
   buttonMenu.addEventListener("click", () => {
     if (headerMenu.classList.contains("header_open")) {
       headerMenu.classList.remove("header_open");
       btnAnimate.classList.remove("header_btn-open");
+      btnAnimateHomePage.classList.remove("header_btn-open");
     } else {
       headerMenu.classList.add("header_open");
       btnAnimate.classList.add("header_btn-open");
+      btnAnimateHomePage.classList.add("header_btn-open");
     }
   });
 });
