@@ -1,7 +1,63 @@
 let header = document.getElementById("header");
 
-const url = "";
-const userInfo = {};
+const endPointForUserToken = "";
+
+const getUserRole = async () => {
+  const response = await fetch(url);
+  const result = await response.json();
+};
+
+const currentUser = "";
+
+const urlForLogo = "images/icons/icon-club.png";
+const urlForAccountPage = "account-page.html";
+const urlForPricePage = "price-page.html";
+const urlForUserTablePage = "user-table-page.html";
+const urlLogoForIndex = "./";
+const urlLogoForPages = ".././";
+const urlPagesForIndex = "./pages/";
+const urlPagesForPages = "./";
+
+const htmlForAdmin = `<li class="header_dropdonw-menu-item-area">
+                      <div class="header_dropdown-menu-item-shadow">
+                        <a
+                          class="header_dropdonw-menu-item"
+                          href=${
+                            document.URL.includes("index")
+                              ? urlPagesForIndex + urlForUserTablePage
+                              : urlPagesForPages + urlForUserTablePage
+                          }
+                          >КЛИЕНТЫ</a
+                        >
+                      </div>
+                    </li>
+                    <li class="header_dropdonw-menu-item-area">
+                      <div class="header_dropdown-menu-item-shadow">
+                        <a
+                          class="header_dropdonw-menu-item"
+                          href=${
+                            document.URL.includes("index")
+                              ? urlPagesForIndex + urlForAccountPage
+                              : urlPagesForPages + urlForAccountPage
+                          }
+                          >РЕДАКТОР</a
+                        >
+                      </div>
+                    </li>`;
+
+const htmlForModerator = `<li class="header_dropdonw-menu-item-area">
+                      <div class="header_dropdown-menu-item-shadow">
+                        <a
+                          class="header_dropdonw-menu-item"
+                          href=${
+                            document.URL.includes("index")
+                              ? urlPagesForIndex + urlForAccountPage
+                              : urlPagesForPages + urlForAccountPage
+                          }
+                          >РЕДАКТОР</a
+                        >
+                      </div>
+                    </li>`;
 
 header.insertAdjacentHTML(
   "beforeend",
@@ -10,7 +66,11 @@ header.insertAdjacentHTML(
           <div class="header_logo-area">
             <div class="header_icon-logo-shadow">
               <img
-                src="../../front/images/icons/icon-club.png"
+                src=${
+                  document.URL.includes("index")
+                    ? urlLogoForIndex + urlForLogo
+                    : urlLogoForPages + urlForLogo
+                }
                 class="header_icon-logo"
               />
             </div>
@@ -22,7 +82,9 @@ header.insertAdjacentHTML(
             <nav>
               <ul class="header_menu-area-list">
                 <li class="header_menu-item-area">
-                  <a class="header_menu-item" href="../../front/index.html"
+                  <a class="header_menu-item" href=${
+                    document.URL.includes("index") ? "" : "../index.html"
+                  }
                     >ГЛАВНАЯ</a
                   >
                 </li>
@@ -40,34 +102,31 @@ header.insertAdjacentHTML(
                       <div class="header_dropdown-menu-item-shadow">
                         <a
                           class="header_dropdonw-menu-item"
-                          href="../../front/pages/account-page.html"
+                          href=${
+                            document.URL.includes("index")
+                              ? urlPagesForIndex + urlForAccountPage
+                              : urlPagesForPages + urlForAccountPage
+                          }
                           >АККАУНТ</a
                         >
                       </div>
                     </li>
+                    ${
+                      currentUser == "admin"
+                        ? htmlForAdmin
+                        : currentUser == "moderator"
+                        ? htmlForModerator
+                        : ``
+                    }
                     <li class="header_dropdonw-menu-item-area">
                       <div class="header_dropdown-menu-item-shadow">
                         <a
                           class="header_dropdonw-menu-item"
-                          href="../../front/pages/account-page.html"
-                          >КЛИЕНТЫ</a
-                        >
-                      </div>
-                    </li>
-                    <li class="header_dropdonw-menu-item-area">
-                      <div class="header_dropdown-menu-item-shadow">
-                        <a
-                          class="header_dropdonw-menu-item"
-                          href="../../front/pages/account-page.html"
-                          >РЕДАКТОР</a
-                        >
-                      </div>
-                    </li>
-                    <li class="header_dropdonw-menu-item-area">
-                      <div class="header_dropdown-menu-item-shadow">
-                        <a
-                          class="header_dropdonw-menu-item"
-                          href="../../front/pages/price-page.html"
+                          href=${
+                            document.URL.includes("index")
+                              ? urlPagesForIndex + urlForPricePage
+                              : urlPagesForPages + urlForPricePage
+                          }
                           >ЦЕНЫ</a
                         >
                       </div>
@@ -96,13 +155,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-// const getUserRole = async () => {
-//   const response = await fetch(url, {
-//     method: "POST",
-//     body: JSON.stringify({
-//       ...userInfo,
-//     }),
-//   });
-//   const result = await response.json();
-// };
