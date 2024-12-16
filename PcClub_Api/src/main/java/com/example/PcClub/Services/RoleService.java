@@ -14,4 +14,10 @@ public class RoleService {
     public Role getUserRole() {
         return roleRepository.findByRole("ROLE_" + Roles.COMMON_USER.getTitle()).get();
     }
+    public Role getUserRoleAdmin() {
+        return roleRepository.findByRole("ROLE_" + Roles.ADMIN_USER.getTitle()).get();
+    }
+    public Role getUserRoleModerator() {
+        return roleRepository.findByRole("ROLE_" + Roles.MODERATOR_USER.getTitle()).get();
+    }
 }
