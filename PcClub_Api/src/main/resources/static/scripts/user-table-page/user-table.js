@@ -1,30 +1,31 @@
-const url = "http://localhost:8080/users/nUsers";
+const url = "http://localhost:8080/users/nUsers?n=100";
 
 const fetchFunction = async () => {
   const response = await fetch(url);
   const result = await response.json();
+  return result;
   console.log(result);
 };
 
-fetchFunction();
+let userInfo = fetchFunction();
 
-let usersInfo = [
-  {
-    id: "0",
-    login: "marat",
-    role: "admin",
-  },
-  {
-    id: "1",
-    login: "nikita",
-    role: "moderator",
-  },
-  {
-    id: "2",
-    login: "vlad",
-    role: "default",
-  },
-];
+// let usersInfo = [
+//   {
+//     id: "0",
+//     login: "marat",
+//     role: "admin",
+//   },
+//   {
+//     id: "1",
+//     login: "nikita",
+//     role: "moderator",
+//   },
+//   {
+//     id: "2",
+//     login: "vlad",
+//     role: "default",
+//   },
+// ];
 
 const redact = `
     <div class="table-actions">
@@ -45,10 +46,6 @@ const redact = `
         </div>
         
     </div>
-`;
-
-const select = `
-    
 `;
 
 const table = document.getElementById("table");
