@@ -2,7 +2,8 @@ package com.example.PcClub.Enums;
 
 public enum Roles {
     COMMON_USER ("common_user"),
-    ADMIN_USER ("admin_user");
+    ADMIN_USER ("admin_user"),
+    MODERATOR_USER ("moderator_user");
 
     private final String title;
 
