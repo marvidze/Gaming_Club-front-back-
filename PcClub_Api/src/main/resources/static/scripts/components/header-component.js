@@ -7,7 +7,7 @@ const getUserRole = async () => {
   const result = await response.json();
 };
 
-const currentUser = "";
+const currentUser = "admin";
 
 const urlForLogo = "images/icons/icon-club.png";
 const urlForAccountPage = "account-page.html";
@@ -143,18 +143,27 @@ header.insertAdjacentHTML(
 const buttonMenu = document.getElementById("button");
 const headerMenu = document.getElementById("header-menu");
 const btnAnimate = document.getElementById("btn-animate");
-const btnAnimateHomePage = document.getElementById("home-page");
 
 document.addEventListener("DOMContentLoaded", () => {
   buttonMenu.addEventListener("click", () => {
     if (headerMenu.classList.contains("header_open")) {
+      if (currentUser == "admin") {
+        btnAnimate.classList.remove("header_btn-open-admin");
+      } else if (currentUser == "moderator") {
+        btnAnimate.classList.remove("header_btn-open-moderator");
+      } else {
+        btnAnimate.classList.remove("header_btn-open");
+      }
       headerMenu.classList.remove("header_open");
-      btnAnimate.classList.remove("header_btn-open");
-      btnAnimateHomePage.classList.remove("header_btn-open");
     } else {
       headerMenu.classList.add("header_open");
-      btnAnimate.classList.add("header_btn-open");
-      btnAnimateHomePage.classList.add("header_btn-open");
+      if (currentUser == "admin") {
+        btnAnimate.classList.add("header_btn-open-admin");
+      } else if (currentUser == "moderator") {
+        btnAnimate.classList.add("header_btn-open-moderator");
+      } else {
+        btnAnimate.classList.add("header_btn-open");
+      }
     }
   });
 });

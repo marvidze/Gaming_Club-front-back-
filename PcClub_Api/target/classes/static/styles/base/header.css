@@ -122,7 +122,15 @@ a {
 }
 
 .header_btn-open {
-  transform: translatex(-150px);
+  transform: translateY(210px);
+}
+
+.header_btn-open-moderator {
+  transform: translateY(280px);
+}
+
+.header_btn-open-admin {
+  transform: translateY(360px);
 }
 
 .header_dropdown-menu-list {
