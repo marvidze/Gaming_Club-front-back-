@@ -1,3 +1,13 @@
+const url = "http://localhost:8080/users/nUsers";
+
+const fetchFunction = async () => {
+  const response = await fetch(url);
+  const result = await response.json();
+  console.log(result);
+};
+
+fetchFunction();
+
 let usersInfo = [
   {
     id: "0",
