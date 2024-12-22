@@ -30,16 +30,16 @@
       </div>
     </header>
     <main>
-      <section class="login">
+      <section class="login hide">
         <div class="container">
-          <div class="wrapper">
-            <div class="box">
+          <div class="wrapper-login">
+            <div class="form-box">
               <form class="form-login" action="#">
                 <h1 class="title">Sign in</h1>
 
                 <div class="input-box">
-                  <input name="login" type="email" required />
-                  <span>Email</span>
+                  <input name="login" type="text" required />
+                  <span>Login</span>
                   <i></i>
                 </div>
 
@@ -61,8 +61,8 @@
                 <h1 class="title">Sign up</h1>
 
                 <div class="input-box">
-                  <input name="login" type="email" required />
-                  <span>Email</span>
+                  <input name="login" type="text" required />
+                  <span>Login</span>
                   <i></i>
                 </div>
 
@@ -88,8 +88,55 @@
           </div>
         </div>
       </section>
+      <section class="account">
+        <div class="container">
+          <div class="account_wrapper">
+            <div class="account_wrapper-box">
+              <div class="account_box-info">
+                <img class="account_avatar" src="../images/avatar-default.png" />
+                <h1 class="account_name">Lesnoy</h1>
+                <input id="upload-avatar" type="file" style="display: none" />
+                <label for="upload-avatar" class="btn_upload-avatar"> Загрузить фото </label>
+              </div>
+            </div>
+            <div class="calendar_wrapper-box">
+              <div class="zones">
+                <div class="zone_classic selected_zone">Classic</div>
+                <div class="zone_comfort">Comfort</div>
+                <div class="zone_pro">PRO</div>
+              </div>
+
+              <div classв="date_row">
+                <div class="selected"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+
+              <div class="times">
+                <div>13:00</div>
+                <div>13:00</div>
+                <div>13:00</div>
+                <div>13:00</div>
+                <div>13:00</div>
+                <div>13:00</div>
+                <div>13:00</div>
+                <div>13:00</div>
+                <div>13:00</div>
+                <div>13:00</div>
+                <div>13:00</div>
+                <div>13:00</div>
+              </div>
+              <button class="btn_send-reservation">Забронировать</button>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-    <script src=".././scripts/account-page.js"></script>
-    <script src=".././scripts/form-register-sign-in.js"></script>
+    <script src=".././scripts/account/form-register-sign-in.js"></script>
+    <script src=".././scripts/account/calendar.js"></script>
   </body>
 </html>

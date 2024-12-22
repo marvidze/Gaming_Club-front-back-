@@ -1,11 +1,11 @@
-.wrapper {
+.wrapper-login {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 80vh;
 }
 
-.box {
+.form-box {
   position: relative;
   width: 380px;
   height: 400px;
@@ -16,11 +16,11 @@
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
 }
 
-.box.active {
+.form-box.active {
   height: 500px;
 }
 
-.box form {
+.form-box form {
   position: absolute;
   inset: 4px;
   padding: 50px 40px;
@@ -59,8 +59,6 @@
   transition: 0.5s;
   z-index: 10;
 }
-
-
 
 .input-box span {
   position: absolute;
@@ -134,4 +132,91 @@
 
 .active {
   display: block;
+}
+
+.account_wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 150px;
+  box-shadow: 0px 0px 40px 10px rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.692);
+  height: 500px;
+  width: 100%;
+  padding: 48px;
+}
+
+.account_wrapper-box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.account_box-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  text-align: center;
+}
+
+.account_name {
+  color: #fff;
+}
+
+.account_avatar {
+  width: 230px;
+  height: 230px;
+  border-radius: 100%;
+  background-color: aliceblue;
+}
+
+.btn_upload-avatar {
+  position: relative;
+  color: #fff;
+  margin: 0 auto;
+  background-color: rgba(29, 1, 47, 0.303);
+  cursor: pointer;
+  width: 90%;
+  height: 40px;
+  border-radius: 30px;
+  border: none;
+  padding: 12px 20px;
+  font-size: 14px;
+}
+
+.btn_upload-avatar::after {
+  content: "";
+  border-radius: 30px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+  background: linear-gradient(90deg, rgb(6, 85, 243) 0%, rgb(255, 0, 225) 100%);
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.btn_upload-avatar:hover {
+  font-size: 14px;
+  width: 91%;
+  height: 42px;
+  transition-duration: 0.3s;
+}
+
+.btn_upload-avatar:not(:hover) {
+  font-size: 13px;
+  width: 90%;
+  height: 40px;
+  transition-duration: 0.3s;
+}
+
+.input_add-avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 30px;
+  opacity: 1;
+  cursor: pointer; */
 }
