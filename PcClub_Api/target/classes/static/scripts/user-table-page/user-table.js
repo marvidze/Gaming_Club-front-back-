@@ -1,5 +1,6 @@
 const url = "http://localhost:8080/users/nUsers?n=100";
-const urlSend = "localhost:8080/users/update";
+const urlSend = "http://localhost:8080/users/update";
+let urlDelete = "http://localhost:8080/users/delete?id=";
 
 let usersInfo = new Array();
 
@@ -65,7 +66,7 @@ const insertRow = (user) => {
   table.appendChild(row);
 };
 
-const deleteData = (button) => {
+const deleteData = async (button) => {
   let row = button.parentNode.parentNode.parentNode;
   row.parentNode.removeChild(row);
   for (i = 0; i < usersInfo.length; i++) {
@@ -74,6 +75,11 @@ const deleteData = (button) => {
       console.log(usersInfo);
     }
   }
+
+  let userId = row.cells[0].firstChild.data;
+
+  const response = await fetch(urlDelete + userId);
+  const result = await response.json();
 };
 
 const editData = (button) => {
