@@ -81,8 +81,6 @@ const editData = (button) => {
 
   button.classList.add("none");
   button.parentNode.children[1].classList.remove("none");
-  // .log((confirmButton = button.parentNode.children[1]))
-  // ;
 
   let loginCell = row.cells[1];
   let roleCell = row.cells[2];
@@ -95,23 +93,27 @@ const editData = (button) => {
 </select>`;
 };
 
-const confirmEditData = (button) => {
+const confirmEditData = async (button) => {
   let row = button.parentNode.parentNode.parentNode;
 
   button.classList.add("none");
   button.parentNode.children[0].classList.remove("none");
   let id = row.cells[0];
+  let idValue = id.firstChild.data;
+  console.log(idValue);
   let loginCell = row.cells[1];
   let roleCell = row.cells[2];
-  console.log(roleCell);
+  let login = loginCell.firstChild.value;
+  let role = roleCell.firstChild.value;
   loginCell.innerHTML = loginCell.firstChild.value;
   roleCell.innerHTML = roleCell.firstChild.value;
   const redactUser = {
-    id: id,
-    login: loginCell.value,
-    role: roleCell.value,
+    id: idValue,
+    login: login,
+    role: role,
   };
-  fetch(urlSend, {
+  console.log(redactUser);
+  const response = await fetch(urlSend, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -120,6 +122,7 @@ const confirmEditData = (button) => {
       ...redactUser,
     }),
   });
+  const result = await response.json();
 };
 
 const resetTable = () => {
