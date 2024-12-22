@@ -1,13 +1,12 @@
 const url = "http://localhost:8080/users/nUsers?n=100";
+const urlSend = "localhost:8080/users/update";
 
-const fetchFunction = async () => {
+let usersInfo = new Array();
+
+async function fetchFunction() {
   const response = await fetch(url);
-  const result = await response.json();
-  return result;
-  console.log(result);
-};
-
-let userInfo = fetchFunction();
+  usersInfo = await response.json();
+}
 
 // let usersInfo = [
 //   {
@@ -23,7 +22,7 @@ let userInfo = fetchFunction();
 //   {
 //     id: "2",
 //     login: "vlad",
-//     role: "default",
+//     role: "common",
 //   },
 // ];
 
@@ -44,7 +43,6 @@ const redact = `
         <div onClick="deleteData(this)">
             <img class="icons" src="../images/icons/icon-trash.png" />
         </div>
-        
     </div>
 `;
 
@@ -108,10 +106,23 @@ const confirmEditData = (button) => {
   console.log(roleCell);
   loginCell.innerHTML = loginCell.firstChild.value;
   roleCell.innerHTML = roleCell.firstChild.value;
+  const redactUser = {
+    id: id,
+    login: loginCell.value,
+    role: roleCell.value,
+  };
+  fetch(urlSend, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      ...redactUser,
+    }),
+  });
 };
 
 const resetTable = () => {
-  // Находим все строки таблицы
   var tableHeaderRowCount = 1;
   var rowCount = table.rows.length;
   for (var i = tableHeaderRowCount; i < rowCount; i++) {
@@ -120,9 +131,10 @@ const resetTable = () => {
 };
 
 const showAllusers = () => {
-  usersInfo.forEach((element) => {
-    insertRow(element);
-  });
+  fetchFunction();
+  for (let i = 0; i < usersInfo.length; i++) {
+    insertRow(usersInfo[i]);
+  }
 };
 
 const buttonSearchByID = document.getElementById("button-search");
@@ -133,9 +145,10 @@ buttonSearchByID.addEventListener("click", () => {
     return;
   } else {
     resetTable();
-    usersInfo.forEach((element) => {
-      if (element.id == input) insertRow(element);
-    });
+
+    for (let i = 0; i < usersInfo.length; i++) {
+      if (usersInfo[i].id == input) insertRow(usersInfo[i]);
+    }
   }
 });
 
@@ -146,4 +159,5 @@ buttonShowAll.addEventListener("click", () => {
   showAllusers();
 });
 
+fetchFunction();
 showAllusers();

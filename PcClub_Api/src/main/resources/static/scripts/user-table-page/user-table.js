@@ -1,13 +1,13 @@
 const url = "http://localhost:8080/users/nUsers?n=100";
 
-const fetchFunction = async () => {
-  const response = await fetch(url);
-  const result = await response.json();
-  return result;
-  console.log(result);
-};
+let usersInfo = new Array();
 
-let userInfo = fetchFunction();
+async function fetchFunction() {
+  const response = await fetch(url);
+  usersInfo = await response.json();
+}
+
+fetchFunction();
 
 // let usersInfo = [
 //   {
@@ -23,7 +23,7 @@ let userInfo = fetchFunction();
 //   {
 //     id: "2",
 //     login: "vlad",
-//     role: "default",
+//     role: "common",
 //   },
 // ];
 
@@ -44,7 +44,6 @@ const redact = `
         <div onClick="deleteData(this)">
             <img class="icons" src="../images/icons/icon-trash.png" />
         </div>
-        
     </div>
 `;
 
@@ -120,9 +119,9 @@ const resetTable = () => {
 };
 
 const showAllusers = () => {
-  usersInfo.forEach((element) => {
-    insertRow(element);
-  });
+  for (let i = 0; i < usersInfo.length; i++) {
+    insertRow(usersInfo[i]);
+  }
 };
 
 const buttonSearchByID = document.getElementById("button-search");
@@ -133,9 +132,10 @@ buttonSearchByID.addEventListener("click", () => {
     return;
   } else {
     resetTable();
-    usersInfo.forEach((element) => {
-      if (element.id == input) insertRow(element);
-    });
+
+    for (let i = 0; i < usersInfo.length; i++) {
+      if (usersInfo[i].id == input) insertRow(usersInfo[i]);
+    }
   }
 });
 
