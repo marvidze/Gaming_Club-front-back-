@@ -22,4 +22,9 @@ public class UserController {
     public ResponseEntity<?> getNUsers(@RequestParam(defaultValue = "1") int n) {
         return ResponseEntity.ok(userService.getNUsers(n));
     }
+
+    @PostMapping("/delete")
+    public ResponseEntity<?> deleteUser(@RequestParam int id) {
+        return ResponseEntity.ok(String.format("Пользовател c id - %d был удалён", id));
+    }
 }
