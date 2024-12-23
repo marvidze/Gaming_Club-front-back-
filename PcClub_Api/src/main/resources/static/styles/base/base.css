@@ -11,12 +11,16 @@ body {
 
 .container {
   margin: 0 auto;
-  padding: 0 15px;
   max-width: 1140px;
 }
 
 .hide {
   display: none !important;
+}
+
+.hide-trans {
+  opacity: 0;
+  transition: 0.8s linear;
 }
 
 input:-webkit-autofill,
