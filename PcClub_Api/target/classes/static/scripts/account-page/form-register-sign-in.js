@@ -16,7 +16,7 @@ const registerFormElement = document.querySelector(".form-reg");
 
 const account_avatar = document.querySelector(".account_avatar");
 
-const error_repeatPassword = document.querySelector(".error_repeat-password");
+const errorMessage = document.querySelector(".error_message");
 
 const uploadAvatar = document.getElementById(".upload-avatar");
 
@@ -24,46 +24,62 @@ const accountName = document.getElementById(".account_name");
 
 signInFormElement.addEventListener("submit", async (event) => {
   event.preventDefault();
-
-  // const formData = new FormData(signInFormElement);
-  // const formDataObject = Object.fromEntries(formData);
-
-  // const response = await fetch(url, {
-  //   method: "POST",
-  //   body: JSON.stringify({
-  //     ...formDataObject,
-  //   }),
-  // });
-  // const result = await response.json();
-  
-  sectionAuthorization.classList.add("hide-trans");
-  setTimeout(() => {
-    sectionAuthorization.classList.add("hide");
-    sectionProfile.classList.remove("hide");
-  }, 800);
-});
-
-registerFormElement.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  error_repeatPassword.classList.add("hide");
-  const formData = new FormData(registerFormElement);
+  const formData = new FormData(signInFormElement);
   const formDataObject = Object.fromEntries(formData);
-  if (formDataObject.password == formDataObject.repeatPassword) {
-    // const response = await fetch(url, {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     ...formDataObject,
-    //   }),
-    // });
-    // const result = await response.json();
 
+  const response = await fetch(urlLog, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      ...formDataObject,
+    }),
+  });
+  const result = await response.json();
+
+  if (result.ok) {
     sectionAuthorization.classList.add("hide-trans");
     setTimeout(() => {
       sectionAuthorization.classList.add("hide");
       sectionProfile.classList.remove("hide");
     }, 800);
   } else {
-    error_repeatPassword.classList.remove("hide");
+    errorMessage.textContent = "Логин или пароль неверный!";
+    errorMessage.classList.remove("hide");
+  }
+});
+
+registerFormElement.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  errorMessage.classList.add("hide");
+  const formData = new FormData(registerFormElement);
+  const formDataObject = Object.fromEntries(formData);
+
+  if (formDataObject.password == formDataObject.repeatPassword) {
+    const response = await fetch(urlReg, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...formDataObject,
+      }),
+    });
+    const result = await response.json();
+
+    if (result.ok) {
+      sectionAuthorization.classList.add("hide-trans");
+      setTimeout(() => {
+        sectionAuthorization.classList.add("hide");
+        sectionProfile.classList.remove("hide");
+      }, 800);
+    } else {
+      errorMessage.textContent = "Логин занят.";
+      errorMessage.classList.remove("hide");
+    }
+  } else {
+    errorMessage.classList.remove("hide");
   }
 });
 
@@ -91,11 +107,7 @@ uploadAvatar.addEventListener("change", async function (event) {
     },
     body: formData,
   });
-  result = await response.json();
-
-  if (response.status !== 200) {
-    throw new Error(result.message);
-  }
+  const result = await response.json();
 
   account_avatar.src = result.ProfileImageURL;
 });

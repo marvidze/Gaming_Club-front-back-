@@ -126,7 +126,7 @@
   width: 100%;
 }
 
-.error_repeat-password {
+.error_message {
   font-size: 14px;
   color: rgba(248, 6, 6, 0.64);
   margin: 10px auto;
