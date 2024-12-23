@@ -1,4 +1,5 @@
-const url = "http://localhost:8080/JavaLaba5/PcClub_Api/src/main/java/com/example/PcClub/Controllers/AuthController.java";
+const urlLog = "http://localhost:8080/auth";
+const urlReg = "http://localhost:8080/registration";
 
 const sectionAuthorization = document.querySelector(".section_authorization");
 const sectionProfile = document.querySelector(".section_profile");
@@ -18,9 +19,9 @@ const account_avatar = document.querySelector(".account_avatar");
 
 const errorMessage = document.querySelector(".error_message");
 
-const uploadAvatar = document.getElementById(".upload-avatar");
+const uploadAvatar = document.getElementById("upload-avatar");
 
-const accountName = document.getElementById(".account_name");
+const accountName = document.querySelector(".account_name");
 
 signInFormElement.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -38,7 +39,25 @@ signInFormElement.addEventListener("submit", async (event) => {
   });
   const result = await response.json();
 
-  if (result.ok) {
+    function base64UrlDecode(base64Url) {
+      // Заменяем символы для стандарта Base64
+      let base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      // Добавляем недостающие символы для корректной длины
+      const padding = "=".repeat((4 - (base64.length % 4)) % 4);
+      base64 += padding;
+
+      return decodeURIComponent(escape(window.atob(base64)));
+    }
+
+  if (result.status == 200) {
+
+  const parts = result.token.split(".");
+      const payload = parts[1];
+      const decodedPayload = await base64UrlDecode(payload).json();
+      console.log(decodedPayload);
+      console.log(decodedPayload.sub);
+      accountName.textContent = decodedPayload.sub;
+
     sectionAuthorization.classList.add("hide-trans");
     setTimeout(() => {
       sectionAuthorization.classList.add("hide");
@@ -68,7 +87,7 @@ registerFormElement.addEventListener("submit", async (event) => {
     });
     const result = await response.json();
 
-    if (result.ok) {
+    if (result.status == 200) {
       sectionAuthorization.classList.add("hide-trans");
       setTimeout(() => {
         sectionAuthorization.classList.add("hide");
