@@ -9,24 +9,6 @@ async function fetchFunction() {
 
 fetchFunction();
 
-// let usersInfo = [
-//   {
-//     id: "0",
-//     login: "marat",
-//     role: "admin",
-//   },
-//   {
-//     id: "1",
-//     login: "nikita",
-//     role: "moderator",
-//   },
-//   {
-//     id: "2",
-//     login: "vlad",
-//     role: "common",
-//   },
-// ];
-
 const redact = `
     <div class="table-actions">
         <div onClick="editData(this)">

@@ -10,4 +10,5 @@ public class UpdateUserDto {
     private Integer id;
     private String login;
     private String role;
+    private String profile_icon_url;
 }

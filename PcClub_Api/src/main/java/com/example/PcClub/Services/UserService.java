@@ -75,7 +75,8 @@ public class UserService implements UserDetailsService {
                     user.getId(),
                     user.getLogin(),
                     user.getRoles().stream().map(Role::getRole).map(role -> role.replaceAll("ROLE_|_user", "").toLowerCase())
-                            .collect(Collectors.joining(", "))
+                            .collect(Collectors.joining(", ")),
+                    user.getProfile_icon_url()
             ));
         }
 
@@ -90,6 +91,10 @@ public class UserService implements UserDetailsService {
 
         if (updateUserDto.getLogin() != null) {
             user.setLogin(updateUserDto.getLogin());
+        }
+
+        if (updateUserDto.getProfile_icon_url() != null) {
+            user.setProfile_icon_url(updateUserDto.getProfile_icon_url());
         }
 
         if (updateUserDto.getRole() != null && !updateUserDto.getRole().isEmpty()) {
