@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/home-page/main_home-page.css" />
+    <link rel="stylesheet" href="../styles/user-table-page/user-table-page.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet" />
+    <title>PC CLUB USERS</title>
+  </head>
+  <body>
+    <div id="header"></div>
+    <main>
+      <section>
+        <div class="container">
+          <div class="name-tag">КЛИЕНТЫ</div>
+          <div class="table-area">
+            <div class="text-find-by-id">Найти по ID</div>
+            <div class="input-area">
+              <input id="input-id" class="input-text input-id" value="" />
+              <div id="button-search">
+                <img class="icons icon-search" src="../images/icons/icon-search.png" />
+              </div>
+            </div>
+            <table id="table">
+              <tr>
+                <th>ID</th>
+                <th>ЛОГИН</th>
+                <th>РОЛЬ</th>
+                <th>ДЕЙСТВИЯ</th>
+              </tr>
+            </table>
+            <div class="text-find-by-id show-all" id="button-show-all">Показать всех пользователей</div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="../scripts/components/header-component.js"></script>
+    <script src="../scripts/user-table-page/user-table.js"></script>
+  </body>
+</html>

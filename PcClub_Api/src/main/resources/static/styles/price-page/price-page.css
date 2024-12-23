@@ -1,0 +1,137 @@
+.price-info-area {
+  overflow: hidden;
+  padding: 10px;
+  border-radius: 20px;
+  margin-inline: auto;
+  margin-top: 150px;
+  height: 100%;
+  width: 50%;
+}
+
+.name-tag-area {
+  display: flex;
+  width: 100%;
+}
+
+.name-tag {
+  margin-inline: auto;
+  text-shadow: rgba(28, 72, 152, 1) 0px 0px 20px;
+  font-family: Arial;
+  font-size: 24pt;
+  font-weight: 800;
+  color: white;
+}
+
+.price-types-area {
+  height: 500px;
+  margin-top: 40px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 25px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 2px solid rgb(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.price-name-tag {
+  width: 250px;
+  text-align: center;
+}
+
+.price-area {
+  margin-top: 35px;
+  height: 450px;
+}
+
+.price-img {
+  height: 400px;
+  width: 300px;
+  padding-top: 70px;
+  padding-inline: 65px;
+  background-size: cover;
+  display: grid;
+}
+
+.classic-price-img {
+  background-image: url("../../images/default-zone-pc.jpg");
+}
+
+.animate-classic {
+  animation: ani 1.2s forwards;
+}
+
+.comfort-price-img {
+  background-image: url("../../images/comfort-zone-pc.jpg");
+}
+
+.animate-comfort {
+  animation: ani 1.4s forwards;
+}
+
+.pro-price-img {
+  background-image: url("../../images/pro-zone-pc.jpg");
+}
+
+.animate-pro {
+  animation: ani 1.6s forwards;
+}
+
+.name-tag-price {
+  text-align: center;
+  font-size: 16pt;
+}
+
+@keyframes ani {
+  0% {
+    transform: translateY(150%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .price-info-area {
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 20px;
+    margin-inline: auto;
+    margin-top: 250px;
+    height: 100%;
+    width: 50%;
+  }
+
+  .name-tag-price {
+    text-align: center;
+    font-size: 18pt;
+  }
+
+  .price-img {
+    height: 550px;
+    width: 400px;
+    padding-top: 100px;
+    padding-bottom: 60px;
+    padding-inline: 65px;
+    background-size: cover;
+    display: grid;
+  }
+
+  .price-types-area {
+    height: 650px;
+    margin-top: 40px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 25px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 2px solid rgb(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+}
