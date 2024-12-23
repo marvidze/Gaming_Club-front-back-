@@ -2,6 +2,7 @@ package com.example.PcClub.Entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.lang.Nullable;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Data
 @Table(name = "users")
 @DynamicUpdate
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +34,10 @@ public class User {
     @Nullable
     @Column(name = "email")
     private String email;
+
+    @Nullable
+    @Column(name = "profile_icon_url")
+    private String profile_icon_url;
 
     @ManyToMany
     @JoinTable(
