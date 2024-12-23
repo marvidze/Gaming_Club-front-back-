@@ -33,6 +33,10 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Nullable
+    @Column(name = "profile_icon_url")
+    private String profile_icon_url;
+
     @ManyToMany
     @JoinTable(
             name = "user_roles",
