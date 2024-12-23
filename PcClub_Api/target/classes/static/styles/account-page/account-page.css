@@ -1,19 +1,11 @@
-<<<<<<< HEAD
-.wrapper {
-=======
 .wrapper-login {
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 80vh;
 }
 
-<<<<<<< HEAD
-.box {
-=======
 .form-box {
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
   position: relative;
   width: 380px;
   height: 400px;
@@ -24,19 +16,11 @@
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
 }
 
-<<<<<<< HEAD
-.box.active {
-  height: 500px;
-}
-
-.box form {
-=======
 .form-box.active {
   height: 500px;
 }
 
 .form-box form {
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
   position: absolute;
   inset: 4px;
   padding: 50px 40px;
@@ -77,11 +61,6 @@
 }
 
 .input-box span {
-<<<<<<< HEAD
-  font-family: Arial;
-  font-weight: bold;
-=======
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
   position: absolute;
   left: 0;
   padding: 20px 0px 10px;
@@ -123,11 +102,6 @@
 }
 
 .link-box a {
-<<<<<<< HEAD
-  font-family: Arial;
-  font-weight: bold;
-=======
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
   margin: 10px 0;
   font-size: 0.75em;
   color: #8f8f8f;
@@ -152,15 +126,12 @@
   width: 100%;
 }
 
-<<<<<<< HEAD
-=======
 .error_repeat-password {
   font-size: 14px;
   color: rgba(248, 6, 6, 0.64);
   margin: 10px auto;
 }
 
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
 .btn-submit:active {
   opacity: 0.8;
 }
@@ -168,8 +139,6 @@
 .active {
   display: block;
 }
-<<<<<<< HEAD
-=======
 
 .account_wrapper {
   display: flex;
@@ -251,4 +220,3 @@
   top: 0;
   left: 0;
 }
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0

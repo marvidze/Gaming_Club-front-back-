@@ -22,15 +22,11 @@ const htmlForAdmin = `<li class="header_dropdonw-menu-item-area">
                       <div class="header_dropdown-menu-item-shadow">
                         <a
                           class="header_dropdonw-menu-item"
-<<<<<<< HEAD
                           href=${
                             document.URL.includes("index")
                               ? urlPagesForIndex + urlForUserTablePage
                               : urlPagesForPages + urlForUserTablePage
                           }
-=======
-                          href=${document.URL.includes("index") ? urlPagesForIndex + urlForUserTablePage : urlPagesForPages + urlForUserTablePage}
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
                           >КЛИЕНТЫ</a
                         >
                       </div>
@@ -39,15 +35,11 @@ const htmlForAdmin = `<li class="header_dropdonw-menu-item-area">
                       <div class="header_dropdown-menu-item-shadow">
                         <a
                           class="header_dropdonw-menu-item"
-<<<<<<< HEAD
                           href=${
                             document.URL.includes("index")
                               ? urlPagesForIndex + urlForAccountPage
                               : urlPagesForPages + urlForAccountPage
                           }
-=======
-                          href=${document.URL.includes("index") ? urlPagesForIndex + urlForAccountPage : urlPagesForPages + urlForAccountPage}
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
                           >РЕДАКТОР</a
                         >
                       </div>
@@ -57,15 +49,11 @@ const htmlForModerator = `<li class="header_dropdonw-menu-item-area">
                       <div class="header_dropdown-menu-item-shadow">
                         <a
                           class="header_dropdonw-menu-item"
-<<<<<<< HEAD
                           href=${
                             document.URL.includes("index")
                               ? urlPagesForIndex + urlForAccountPage
                               : urlPagesForPages + urlForAccountPage
                           }
-=======
-                          href=${document.URL.includes("index") ? urlPagesForIndex + urlForAccountPage : urlPagesForPages + urlForAccountPage}
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
                           >РЕДАКТОР</a
                         >
                       </div>
@@ -78,15 +66,11 @@ header.insertAdjacentHTML(
           <div class="header_logo-area">
             <div class="header_icon-logo-shadow">
               <img
-<<<<<<< HEAD
                 src=${
                   document.URL.includes("index")
                     ? urlLogoForIndex + urlForLogo
                     : urlLogoForPages + urlForLogo
                 }
-=======
-                src=${document.URL.includes("index") ? urlLogoForIndex + urlForLogo : urlLogoForPages + urlForLogo}
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
                 class="header_icon-logo"
               />
             </div>
@@ -98,13 +82,9 @@ header.insertAdjacentHTML(
             <nav>
               <ul class="header_menu-area-list">
                 <li id="home-page" class="header_menu-item-area">
-<<<<<<< HEAD
                   <a class="header_menu-item" href=${
                     document.URL.includes("index") ? "" : "../index.html"
                   }
-=======
-                  <a class="header_menu-item" href=${document.URL.includes("index") ? "" : "../index.html"}
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
                     >ГЛАВНАЯ</a
                   >
                 </li>
@@ -122,20 +102,15 @@ header.insertAdjacentHTML(
                       <div class="header_dropdown-menu-item-shadow">
                         <a
                           class="header_dropdonw-menu-item"
-<<<<<<< HEAD
                           href=${
                             document.URL.includes("index")
                               ? urlPagesForIndex + urlForAccountPage
                               : urlPagesForPages + urlForAccountPage
                           }
-=======
-                          href=${document.URL.includes("index") ? urlPagesForIndex + urlForAccountPage : urlPagesForPages + urlForAccountPage}
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
                           >АККАУНТ</a
                         >
                       </div>
                     </li>
-<<<<<<< HEAD
                     ${
                       currentUser == "admin"
                         ? htmlForAdmin
@@ -143,22 +118,15 @@ header.insertAdjacentHTML(
                         ? htmlForModerator
                         : ``
                     }
-=======
-                    ${currentUser == "admin" ? htmlForAdmin : currentUser == "moderator" ? htmlForModerator : ``}
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
                     <li class="header_dropdonw-menu-item-area">
                       <div class="header_dropdown-menu-item-shadow">
                         <a
                           class="header_dropdonw-menu-item"
-<<<<<<< HEAD
                           href=${
                             document.URL.includes("index")
                               ? urlPagesForIndex + urlForPricePage
                               : urlPagesForPages + urlForPricePage
                           }
-=======
-                          href=${document.URL.includes("index") ? urlPagesForIndex + urlForPricePage : urlPagesForPages + urlForPricePage}
->>>>>>> 80ee575011b95f73c66dfa3c8ddfb88978bb5fa0
                           >ЦЕНЫ</a
                         >
                       </div>

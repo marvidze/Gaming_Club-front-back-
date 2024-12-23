@@ -64,9 +64,6 @@ const editData = (button) => {
 
   button.classList.add("none");
   button.parentNode.children[1].classList.remove("none");
-  // .log((confirmButton = button.parentNode.children[1]))
-  // ;
-
   let loginCell = row.cells[1];
   let roleCell = row.cells[2];
 
@@ -92,7 +89,6 @@ const confirmEditData = (button) => {
 };
 
 const resetTable = () => {
-  // Находим все строки таблицы
   var tableHeaderRowCount = 1;
   var rowCount = table.rows.length;
   for (var i = tableHeaderRowCount; i < rowCount; i++) {
