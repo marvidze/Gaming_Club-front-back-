@@ -1,5 +1,6 @@
 package com.example.PcClub.Services;
 
+import com.example.PcClub.DTOs.NewNewsDto;
 import com.example.PcClub.DTOs.NewsDto;
 import com.example.PcClub.DTOs.UpdateUserDto;
 import com.example.PcClub.Entities.News;
@@ -42,5 +43,14 @@ public class NewsService {
         }
 
         return ResponseEntity.ok(String.format("Новость '%s' изменена", newsRepository.save(news).getId()));
+    }
+
+    @Transactional
+    public News createNewNews(NewNewsDto newNewsDto) {
+        News news = new News();
+        news.setTitle(newNewsDto.getTitle());
+        news.setBody(newNewsDto.getBody());
+
+        return newsRepository.save(news);
     }
 }

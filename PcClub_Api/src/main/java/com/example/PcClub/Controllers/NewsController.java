@@ -1,5 +1,6 @@
 package com.example.PcClub.Controllers;
 
+import com.example.PcClub.DTOs.NewNewsDto;
 import com.example.PcClub.DTOs.NewsDto;
 import com.example.PcClub.Entities.News;
 import com.example.PcClub.Exceptions.AppError;
@@ -41,5 +42,10 @@ public class NewsController {
                     "Новость не найдена!"), HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(String.format("Новость c id - %d была удалена", id));
+    }
+
+    @PostMapping("/addNews")
+    public ResponseEntity<?> addNews(@RequestBody NewNewsDto newNews) {
+        return ResponseEntity.ok(newsService.createNewNews(newNews));
     }
 }
