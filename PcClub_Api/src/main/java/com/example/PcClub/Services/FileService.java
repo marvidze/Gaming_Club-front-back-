@@ -5,6 +5,7 @@ import com.example.PcClub.Exceptions.AppError;
 import com.example.PcClub.Repositories.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.apache.tomcat.util.http.fileupload.util.Streams;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.UUID;
 
 @Service
@@ -24,7 +27,7 @@ public class FileService {
     private String uploadPath;
 
     @Transactional
-    public ResponseEntity<?> uploadFile(MultipartFile file, UserDetails userDetails) throws IOException {
+    public ResponseEntity<?> uploadFile(MultipartFile file, String login) throws IOException {
         if (file == null) {
             return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(),
                     "Ошибка отправки файла"), HttpStatus.BAD_REQUEST);
@@ -35,14 +38,31 @@ public class FileService {
             uploadDir.mkdir();
         }
 
-        String uuidFile = UUID.randomUUID().toString();
-        String fileName = uuidFile + "." + file.getOriginalFilename();
+        User user = userRepository.findByLogin(login).orElseThrow(() -> new RuntimeException("Пользователь не найден"));
 
-        file.transferTo(new File(uploadPath + "/" + fileName));
+        if (user.getProfile_icon_url() != null) {
+            File userIcon = new File(uploadDir, user.getProfile_icon_url());
 
-        User user = userRepository.findByLogin(userDetails.getUsername()).orElseThrow(() -> new RuntimeException("Пользователь не найден"));
-        user.setProfile_icon_url(fileName);
+            if (userIcon.exists()) {
+                userIcon.delete();
+            }
+            user.setProfile_icon_url(null);
+        }
 
-        return ResponseEntity.ok(fileName);
+        try (InputStream inputStream = file.getInputStream()) {
+            String uuidFile = UUID.randomUUID().toString();
+            String fileName = uuidFile + "." + file.getOriginalFilename();
+            File outputFile = new File(uploadDir, fileName);
+
+            try (FileOutputStream outputStream = new FileOutputStream(outputFile)) {
+                Streams.copy(inputStream, outputStream, true);
+            }
+            user.setProfile_icon_url(fileName);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return ResponseEntity.ok(uploadPath + "\\" + user.getProfile_icon_url());
     }
 }
