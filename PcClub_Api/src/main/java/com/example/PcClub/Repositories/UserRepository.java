@@ -12,6 +12,7 @@ import java.util.Optional;
 public interface UserRepository extends CrudRepository<User, Integer> {
     Optional<User> findByLogin(String login);
     Optional<User> getUserById(Integer id);
+    Optional<User> deleteUserById(int id);
 
     @Query("SELECT u FROM User u ORDER BY u.id ASC LIMIT :n")
     List<User> findFirstNByIdOrderByIdAsc(int n);

@@ -41,6 +41,9 @@ public class UserService implements UserDetailsService {
     }
     public List<User> findFirstNByIdOrderByIdAsc(int n) { return userRepository.findFirstNByIdOrderByIdAsc(n); }
 
+    @Transactional
+    public Optional<User> deleteUser(int id) { return userRepository.deleteUserById(id); }
+
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
