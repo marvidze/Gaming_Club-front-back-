@@ -1,0 +1,134 @@
+.news-area {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  padding: 20px;
+}
+
+.news {
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.496);
+  height: 400px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.news-header {
+  font-family: Arial;
+  font-size: 20pt;
+  font-weight: 800;
+  color: rgb(255, 255, 255);
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.news-img {
+  top: -20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  object-fit: cover;
+  width: 100%;
+  height: 150px;
+}
+
+.news-body {
+  font-family: Arial;
+  font-size: 13pt;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 5px;
+  margin-inline: 10px;
+}
+
+.redact-area {
+  height: 30px;
+  width: 100%;
+}
+
+.redact-icon {
+  float: right;
+  margin-right: 15px;
+  margin-top: 3px;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+
+.redact-icon:hover {
+  animation: icons 0.2s;
+}
+
+.news-animation {
+  animation: ani 1s forwards;
+}
+
+.input-text-header {
+  color: white;
+  font-family: Arial;
+  font-size: 16pt;
+  font-weight: 800;
+  text-shadow: rgba(28, 72, 152, 1) 0px 0px 40px;
+  background-color: #00000000;
+  border: 2px solid rgba(255, 255, 255, 0.117);
+  height: 30px;
+  width: 100%;
+}
+
+.input-text-body {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: Arial;
+  font-size: 12pt;
+  font-weight: 800;
+  text-shadow: rgba(28, 72, 152, 1) 0px 0px 40px;
+  background-color: #00000000;
+  border: 2px solid rgba(255, 255, 255, 0.117);
+  height: 160px;
+  width: 100%;
+}
+
+.none {
+  display: none;
+}
+
+input {
+  padding: 5px;
+}
+
+textarea {
+  padding: 5px;
+  resize: none;
+}
+
+@keyframes icons {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(20deg);
+  }
+  50% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  75% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(-20deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes ani {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
