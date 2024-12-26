@@ -14,8 +14,11 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -35,7 +38,9 @@ public class AuthService {
         }
 
         UserDetails userDetails = userService.loadUserByUsername(authRequest.getLogin());
-        String token = jwtTokenUtils.generateToken(userDetails);
+        User user = userService.findByLogin(userDetails.getUsername()).orElseThrow(()-> new UsernameNotFoundException(
+                String.format("Пользователь '%s' не найден")));
+        String token = jwtTokenUtils.generateToken(userDetails, user);
 
         return ResponseEntity.ok(new JwtResponse(HttpStatus.OK.value(), token));
     }

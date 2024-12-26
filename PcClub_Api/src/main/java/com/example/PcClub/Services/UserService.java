@@ -40,6 +40,7 @@ public class UserService implements UserDetailsService {
         return userRepository.getUserById(id);
     }
     public List<User> findFirstNByIdOrderByIdAsc(int n) { return userRepository.findFirstNByIdOrderByIdAsc(n); }
+    //public String getProfileIconUrlByLogin(String login) { return userRepository.getProfileIconUrlByLogin(login); }
 
     @Transactional
     public Optional<User> deleteUser(int id) { return userRepository.deleteUserById(id); }
