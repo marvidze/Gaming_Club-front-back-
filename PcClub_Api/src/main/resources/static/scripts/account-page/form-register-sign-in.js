@@ -1,4 +1,5 @@
-const url = "http://localhost:8080/JavaLaba5/PcClub_Api/src/main/java/com/example/PcClub/Controllers/AuthController.java";
+const urlLog = "http://localhost:8080/auth";
+const urlReg = "http://localhost:8080/registration";
 
 const sectionAuthorization = document.querySelector(".section_authorization");
 const sectionProfile = document.querySelector(".section_profile");
@@ -20,7 +21,7 @@ const errorMessage = document.querySelector(".error_message");
 
 const uploadAvatar = document.getElementById("upload-avatar");
 
-const accountName = document.getElementById(".account_name");
+const accountName = document.querySelector(".account_name");
 
 signInFormElement.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -74,7 +75,7 @@ registerFormElement.addEventListener("submit", async (event) => {
     });
     const result = await response.json();
 
-    if (result.ok) {
+    if (result.status == 200) {
       sectionAuthorization.classList.add("hide-trans");
       setTimeout(() => {
         sectionAuthorization.classList.add("hide");

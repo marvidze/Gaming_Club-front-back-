@@ -2,6 +2,7 @@ package com.example.PcClub.Entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.lang.Nullable;
 
 @Entity
 @Data

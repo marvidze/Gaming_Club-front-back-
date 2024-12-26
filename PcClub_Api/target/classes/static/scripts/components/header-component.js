@@ -1,6 +1,6 @@
 let header = document.getElementById("header");
 
-const endPointForUserToken = "";
+const url = "";
 
 const getUserRole = async () => {
   const response = await fetch(url);
@@ -22,30 +22,16 @@ const htmlForAdmin = `<li class="header_dropdonw-menu-item-area">
                       <div class="header_dropdown-menu-item-shadow">
                         <a
                           class="header_dropdonw-menu-item"
-                          href=${document.URL.includes("index") ? urlPagesForIndex + urlForUserTablePage : urlPagesForPages + urlForUserTablePage}
+                          href=${
+                            document.URL.includes("index")
+                              ? urlPagesForIndex + urlForUserTablePage
+                              : urlPagesForPages + urlForUserTablePage
+                          }
                           >КЛИЕНТЫ</a
                         >
                       </div>
                     </li>
-                    <li class="header_dropdonw-menu-item-area">
-                      <div class="header_dropdown-menu-item-shadow">
-                        <a
-                          class="header_dropdonw-menu-item"
-                          href=${document.URL.includes("index") ? urlPagesForIndex + urlForAccountPage : urlPagesForPages + urlForAccountPage}
-                          >РЕДАКТОР</a
-                        >
-                      </div>
-                    </li>`;
-
-const htmlForModerator = `<li class="header_dropdonw-menu-item-area">
-                      <div class="header_dropdown-menu-item-shadow">
-                        <a
-                          class="header_dropdonw-menu-item"
-                          href=${document.URL.includes("index") ? urlPagesForIndex + urlForAccountPage : urlPagesForPages + urlForAccountPage}
-                          >РЕДАКТОР</a
-                        >
-                      </div>
-                    </li>`;
+                   `;
 
 header.insertAdjacentHTML(
   "beforeend",
@@ -54,7 +40,11 @@ header.insertAdjacentHTML(
           <div class="header_logo-area">
             <div class="header_icon-logo-shadow">
               <img
-                src=${document.URL.includes("index") ? urlLogoForIndex + urlForLogo : urlLogoForPages + urlForLogo}
+                src=${
+                  document.URL.includes("index")
+                    ? urlLogoForIndex + urlForLogo
+                    : urlLogoForPages + urlForLogo
+                }
                 class="header_icon-logo"
               />
             </div>
@@ -66,7 +56,9 @@ header.insertAdjacentHTML(
             <nav>
               <ul class="header_menu-area-list">
                 <li id="home-page" class="header_menu-item-area">
-                  <a class="header_menu-item" href=${document.URL.includes("index") ? "" : "../index.html"}
+                  <a class="header_menu-item" href=${
+                    document.URL.includes("index") ? "" : "../index.html"
+                  }
                     >ГЛАВНАЯ</a
                   >
                 </li>
@@ -84,17 +76,25 @@ header.insertAdjacentHTML(
                       <div class="header_dropdown-menu-item-shadow">
                         <a
                           class="header_dropdonw-menu-item"
-                          href=${document.URL.includes("index") ? urlPagesForIndex + urlForAccountPage : urlPagesForPages + urlForAccountPage}
+                          href=${
+                            document.URL.includes("index")
+                              ? urlPagesForIndex + urlForAccountPage
+                              : urlPagesForPages + urlForAccountPage
+                          }
                           >АККАУНТ</a
                         >
                       </div>
                     </li>
-                    ${currentUser == "admin" ? htmlForAdmin : currentUser == "moderator" ? htmlForModerator : ``}
+                    ${currentUser == "admin" ? htmlForAdmin : ``}
                     <li class="header_dropdonw-menu-item-area">
                       <div class="header_dropdown-menu-item-shadow">
                         <a
                           class="header_dropdonw-menu-item"
-                          href=${document.URL.includes("index") ? urlPagesForIndex + urlForPricePage : urlPagesForPages + urlForPricePage}
+                          href=${
+                            document.URL.includes("index")
+                              ? urlPagesForIndex + urlForPricePage
+                              : urlPagesForPages + urlForPricePage
+                          }
                           >ЦЕНЫ</a
                         >
                       </div>
