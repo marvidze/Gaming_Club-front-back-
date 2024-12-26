@@ -12,7 +12,7 @@
   <body>
     <div id="header"></div>
     <main>
-      <section class="section_authorization">
+      <section class="section_authorization hide">
         <div class="container">
           <div class="wrapper-login">
             <div class="form-box">
@@ -72,7 +72,7 @@
           </div>
         </div>
       </section>
-      <section class="section_profile hide">
+      <section class="section_profile">
         <div class="container">
           <div class="account_wrapper">
             <div class="account_wrapper-box">
@@ -101,18 +101,13 @@
               </div>
 
               <div class="times">
-                <div>13:00</div>
-                <div>13:00</div>
-                <div>13:00</div>
-                <div>13:00</div>
-                <div>13:00</div>
-                <div>13:00</div>
-                <div>13:00</div>
-                <div>13:00</div>
-                <div>13:00</div>
-                <div>13:00</div>
-                <div>13:00</div>
-                <div>13:00</div>
+                <form action="#">
+                  <label for="1" class="btn_times">00:00 <input type="checkbox" id="1" /></label>
+                  <label for="2" class="btn_times">00:00 <input type="checkbox" id="2" /></label>
+                  <label for="3" class="btn_times">00:00 <input type="checkbox" id="3" /></label>
+                  <label for="4" class="btn_times">00:00 <input type="checkbox" id="4" /></label>
+                  <label for="5" class="btn_times">00:00 <input type="checkbox" id="5" /></label>
+                </form>
               </div>
               <button class="btn_send-reservation">Забронировать</button>
             </div>

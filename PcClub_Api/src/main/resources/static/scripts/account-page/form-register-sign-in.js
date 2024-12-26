@@ -39,24 +39,12 @@ signInFormElement.addEventListener("submit", async (event) => {
   });
   const result = await response.json();
 
-    function base64UrlDecode(base64Url) {
-      // Заменяем символы для стандарта Base64
-      let base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-      // Добавляем недостающие символы для корректной длины
-      const padding = "=".repeat((4 - (base64.length % 4)) % 4);
-      base64 += padding;
-
-      return decodeURIComponent(escape(window.atob(base64)));
-    }
-
-  if (result.status == 200) {
-
-  const parts = result.token.split(".");
-      const payload = parts[1];
-      const decodedPayload = await base64UrlDecode(payload).json();
-      console.log(decodedPayload);
-      console.log(decodedPayload.sub);
-      accountName.textContent = decodedPayload.sub;
+  if (result.ok) {
+    const parts = result.token.split(".");
+    const decodedPayload = base64UrlDecode(parts[1]);
+    const payload = JSON.parse(decodedPayload);
+    console.log(payload);
+    accountName.innerText = decodedPayload.sub;
 
     sectionAuthorization.classList.add("hide-trans");
     setTimeout(() => {
