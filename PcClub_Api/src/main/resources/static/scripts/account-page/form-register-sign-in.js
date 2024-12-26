@@ -1,5 +1,6 @@
 const urlLog = "http://localhost:8080/auth";
 const urlReg = "http://localhost:8080/registration";
+const urlPicUpload = "http://localhost:8080/files/upload";
 
 const sectionAuthorization = document.querySelector(".section_authorization");
 const sectionProfile = document.querySelector(".section_profile");
@@ -111,7 +112,7 @@ uploadAvatar.addEventListener("change", async function (event) {
   formData.append("file", file);
   formData.append("login", login);
 
-  const response = await fetch("URL", {
+  const response = await fetch(urlPicUpload, {
     method: "POST",
     headers: {
       "Content-Type": "multipart/form-data",

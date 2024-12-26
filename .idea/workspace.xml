@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bfc0df3b-e9ff-4297-84ce-189673521548" name="Changes" comment="Дто для новых новосте и метод для добавления">
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/pages/account-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/pages/account-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/form-register-sign-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/form-register-sign-in.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/pages/account-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/target/classes/static/pages/account-page.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Api" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;LosingControl&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/marvidze/JavaLaba5.git&quot;,
+    &quot;accountId&quot;: &quot;ebdbd8dd-74f0-4f39-a871-54f662212eff&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2qJuSLhf6osLgUIVSjUxSkUqdKs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.PcClubApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Git repo/JavaLaba5&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bfc0df3b-e9ff-4297-84ce-189673521548" name="Changes" comment="Добавлены енд поинты обновления пользователя, получение n-го кол-во пользователей, updateUserDto, UserController, новая роль moderator" />
+      <created>1734392998686</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734392998686</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Изменения с master">
+      <option name="closed" value="true" />
+      <created>1734872366025</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1734872366025</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Функционал для загрузки иконки пользователя">
+      <option name="closed" value="true" />
+      <created>1734966622899</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734966622899</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Перезапись иконки профиля и новый способо загрузки">
+      <option name="closed" value="true" />
+      <created>1734971988230</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734971988230</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Перезапись иконки профиля и новый способо загрузки">
+      <option name="closed" value="true" />
+      <created>1734977342595</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734977342595</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Скелет для новостей">
+      <option name="closed" value="true" />
+      <created>1734982796673</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1734982796673</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Функционал для управления новостями">
+      <option name="closed" value="true" />
+      <created>1734989994641</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1734989994641</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Дто для новых новосте и метод для добавления">
+      <option name="closed" value="true" />
+      <created>1734990723772</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1734990723772</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Добавлены енд поинты обновления пользователя, получение n-го кол-во пользователей, updateUserDto, UserController, новая роль moderator" />
+    <MESSAGE value="Изменения с master" />
+    <MESSAGE value="Функционал для загрузки иконки пользователя" />
+    <MESSAGE value="Перезапись иконки профиля и новый способо загрузки" />
+    <MESSAGE value="Скелет для новостей" />
+    <MESSAGE value="Функционал для управления новостями" />
+    <MESSAGE value="Дто для новых новосте и метод для добавления" />
+    <option name="LAST_COMMIT_MESSAGE" value="Дто для новых новосте и метод для добавления" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.springframework.data.mapping.PropertyReferenceException" package="org.springframework.data.mapping" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
