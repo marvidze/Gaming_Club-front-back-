@@ -43,11 +43,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   if (result.status === 200) {
     const decodedToken = parseJWT(result.token);
-    console.log(decodedToken);
     accountName.innerText = decodedToken.sub;
     sectionAuthorization.classList.add("hide");
     sectionProfile.classList.remove("hide");
-    account_avatar.src = `../../../../../../../{result.rewrfs;dlkfjhksalkodjhflasdikjhfbnlasjkdhbfliasdhub}`;
+    account_avatar.src = `../../../../../../../{decodedToken.iconURL}`;
   }
 });
 
