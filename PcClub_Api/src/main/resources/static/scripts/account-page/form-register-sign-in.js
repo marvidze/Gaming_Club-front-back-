@@ -104,10 +104,12 @@ btn_log.onclick = () => {
 
 uploadAvatar.addEventListener("change", async function (event) {
   const token = localStorage.getItem("token");
+  const decodedToken = parseJWT(token);
+  const login = decodedToken.sub;
   const file = event.target.files[0]; // Получаем первый выбранный файл
   const formData = new FormData();
-  formData.append("image", file);
-  formData.append("token", token);
+  formData.append("file", file);
+  formData.append("login", login);
 
   const response = await fetch("URL", {
     method: "POST",
