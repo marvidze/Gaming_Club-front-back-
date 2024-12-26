@@ -24,11 +24,38 @@ const uploadAvatar = document.getElementById("upload-avatar");
 
 const accountName = document.querySelector(".account_name");
 
+document.addEventListener("DOMContentLoaded", async function () {
+  const login = localStorage.getItem("login");
+  const password = localStorage.getItem("password");
+
+  const response = await fetch(urlLog, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      login: login,
+      password: password,
+    }),
+  });
+
+  const result = await response.json();
+
+  if (result.status === 200) {
+    const decodedToken = parseJWT(result.token);
+    console.log(decodedToken);
+    accountName.innerText = decodedToken.sub;
+    sectionAuthorization.classList.add("hide");
+    sectionProfile.classList.remove("hide");
+    account_avatar.src = `../../../../../../../{result.rewrfs;dlkfjhksalkodjhflasdikjhfbnlasjkdhbfliasdhub}`;
+  }
+});
+
 signInFormElement.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData(signInFormElement);
   const formDataObject = Object.fromEntries(formData);
-
+  console.log(formDataObject);
   const response = await fetch(urlLog, {
     method: "POST",
     headers: {
@@ -42,8 +69,9 @@ signInFormElement.addEventListener("submit", async (event) => {
 
   if (result.status == 200) {
     localStorage.setItem("token", result.token);
+    localStorage.setItem("login", formDataObject.login);
+    localStorage.setItem("password", formDataObject.password);
     const decodedToken = parseJWT(result.token);
-    console.log(decodedToken);
     accountName.innerText = decodedToken.sub;
 
     sectionAuthorization.classList.add("hide-trans");
@@ -77,6 +105,8 @@ registerFormElement.addEventListener("submit", async (event) => {
 
     if (result.status == 200) {
       localStorage.setItem("token", result.token);
+      localStorage.setItem("login", formDataObject.login);
+      localStorage.setItem("password", formDataObject.password);
       sectionAuthorization.classList.add("hide-trans");
       setTimeout(() => {
         sectionAuthorization.classList.add("hide");
@@ -119,9 +149,9 @@ uploadAvatar.addEventListener("change", async function (event) {
     },
     body: formData,
   });
-  const result = await response.json();
+  const result = await response.text();
 
-  account_avatar.src = result.ProfileImageURL;
+  account_avatar.src = `../../../../../../../{result}`;
 });
 
 function parseJWT(token) {
