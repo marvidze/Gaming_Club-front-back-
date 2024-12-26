@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Update_at_21_12_2024_21_53_[Changes]" date="1734807226001" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2024_21_53_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 21.12.2024 21:53 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/src/main/resources/static/images/default-zone-pc.jpg" />
+    <option name="AFTER_PATH" value="PcClub_Api/src/main/resources/static/images/default-zone-pc.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2024_21_53_[Changes]/default-zone-pc.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/src/main/resources/static/images/comfort-zone-pc.jpg" />
+    <option name="AFTER_PATH" value="PcClub_Api/src/main/resources/static/images/comfort-zone-pc.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2024_21_53_[Changes]/comfort-zone-pc.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/src/main/resources/static/images/pro-zone-pc.jpg" />
+    <option name="AFTER_PATH" value="PcClub_Api/src/main/resources/static/images/pro-zone-pc.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2024_21_53_[Changes]/pro-zone-pc.jpg" />
+  </binary>
+</changelist>

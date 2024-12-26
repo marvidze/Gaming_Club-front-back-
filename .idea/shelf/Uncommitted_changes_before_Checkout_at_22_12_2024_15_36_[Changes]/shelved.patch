@@ -1,0 +1,82 @@
+Index: PcClub_Api/src/main/resources/static/scripts/user-table-page/user-table.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const url = \"http://localhost:8080/users/nUsers?n=100\";\r\n\r\nlet usersInfo = new Array();\r\n\r\nasync function fetchFunction() {\r\n  const response = await fetch(url);\r\n  usersInfo = await response.json();\r\n}\r\n\r\nfetchFunction();\r\n\r\n// let usersInfo = [\r\n//   {\r\n//     id: \"0\",\r\n//     login: \"marat\",\r\n//     role: \"admin\",\r\n//   },\r\n//   {\r\n//     id: \"1\",\r\n//     login: \"nikita\",\r\n//     role: \"moderator\",\r\n//   },\r\n//   {\r\n//     id: \"2\",\r\n//     login: \"vlad\",\r\n//     role: \"common\",\r\n//   },\r\n// ];\r\n\r\nconst redact = `\r\n    <div class=\"table-actions\">\r\n        <div onClick=\"editData(this)\">\r\n            <img\r\n                class=\"icons\"\r\n                src=\"../images/icons/icon-change.png\"\r\n            />\r\n        </div>\r\n        <div class=\"none\" onClick=\"confirmEditData(this)\">\r\n            <img\r\n                class=\"icons\"\r\n                src=\"../images/icons/icon-confirm.png\"\r\n            />\r\n        </div>\r\n        <div onClick=\"deleteData(this)\">\r\n            <img class=\"icons\" src=\"../images/icons/icon-trash.png\" />\r\n        </div>\r\n    </div>\r\n`;\r\n\r\nconst table = document.getElementById(\"table\");\r\n\r\nconst insertRow = (user) => {\r\n  let row = document.createElement(\"tr\");\r\n  let cell0 = document.createElement(\"td\");\r\n  let cell1 = document.createElement(\"td\");\r\n  let cell2 = document.createElement(\"td\");\r\n  let cell3 = document.createElement(\"td\");\r\n  cell0.innerHTML = user.id;\r\n  cell1.innerHTML = user.login;\r\n  cell2.innerHTML = user.role;\r\n  cell3.innerHTML = redact;\r\n  row.appendChild(cell0);\r\n  row.appendChild(cell1);\r\n  row.appendChild(cell2);\r\n  row.appendChild(cell3);\r\n  table.appendChild(row);\r\n};\r\n\r\nconst deleteData = (button) => {\r\n  let row = button.parentNode.parentNode.parentNode;\r\n  row.parentNode.removeChild(row);\r\n  for (i = 0; i < usersInfo.length; i++) {\r\n    if (usersInfo[i].login == row.firstChild.innerHTML) {\r\n      usersInfo.splice(i, 1);\r\n      console.log(usersInfo);\r\n    }\r\n  }\r\n};\r\n\r\nconst editData = (button) => {\r\n  let row = button.parentNode.parentNode.parentNode;\r\n\r\n  button.classList.add(\"none\");\r\n  button.parentNode.children[1].classList.remove(\"none\");\r\n  // .log((confirmButton = button.parentNode.children[1]))\r\n  // ;\r\n\r\n  let loginCell = row.cells[1];\r\n  let roleCell = row.cells[2];\r\n\r\n  loginCell.innerHTML = `<input class=\"input-text\" type=\"text\" value=\"${loginCell.innerHTML}\"/>`;\r\n  roleCell.innerHTML = `<select class=\"select-role\">\r\n  <option value=\"admin\">admin</option>\r\n  <option value=\"moderator\">moderator</option>\r\n  <option value=\"common\">common</option>\r\n</select>`;\r\n};\r\n\r\nconst confirmEditData = (button) => {\r\n  let row = button.parentNode.parentNode.parentNode;\r\n\r\n  button.classList.add(\"none\");\r\n  button.parentNode.children[0].classList.remove(\"none\");\r\n  let id = row.cells[0];\r\n  let loginCell = row.cells[1];\r\n  let roleCell = row.cells[2];\r\n  console.log(roleCell);\r\n  loginCell.innerHTML = loginCell.firstChild.value;\r\n  roleCell.innerHTML = roleCell.firstChild.value;\r\n};\r\n\r\nconst resetTable = () => {\r\n  // Находим все строки таблицы\r\n  var tableHeaderRowCount = 1;\r\n  var rowCount = table.rows.length;\r\n  for (var i = tableHeaderRowCount; i < rowCount; i++) {\r\n    table.deleteRow(tableHeaderRowCount);\r\n  }\r\n};\r\n\r\nconst showAllusers = () => {\r\n  for (let i = 0; i < usersInfo.length; i++) {\r\n    insertRow(usersInfo[i]);\r\n  }\r\n};\r\n\r\nconst buttonSearchByID = document.getElementById(\"button-search\");\r\n\r\nbuttonSearchByID.addEventListener(\"click\", () => {\r\n  let input = document.getElementById(\"input-id\").value;\r\n  if (input === \"\") {\r\n    return;\r\n  } else {\r\n    resetTable();\r\n\r\n    for (let i = 0; i < usersInfo.length; i++) {\r\n      if (usersInfo[i].id == input) insertRow(usersInfo[i]);\r\n    }\r\n  }\r\n});\r\n\r\nconst buttonShowAll = document.getElementById(\"button-show-all\");\r\n\r\nbuttonShowAll.addEventListener(\"click\", () => {\r\n  resetTable();\r\n  showAllusers();\r\n});\r\n\r\nshowAllusers();\r\n
+===================================================================
+diff --git a/PcClub_Api/src/main/resources/static/scripts/user-table-page/user-table.js b/PcClub_Api/src/main/resources/static/scripts/user-table-page/user-table.js
+--- a/PcClub_Api/src/main/resources/static/scripts/user-table-page/user-table.js	(revision c0a9f7ab0060bed6c83c25799a9554252dc15cea)
++++ b/PcClub_Api/src/main/resources/static/scripts/user-table-page/user-table.js	(date 1734870860983)
+@@ -1,4 +1,5 @@
+ const url = "http://localhost:8080/users/nUsers?n=100";
++const urlSend = "http://localhost:8080/users/update";
+ 
+ let usersInfo = new Array();
+ 
+@@ -7,8 +8,6 @@
+   usersInfo = await response.json();
+ }
+ 
+-fetchFunction();
+-
+ // let usersInfo = [
+ //   {
+ //     id: "0",
+@@ -96,21 +95,39 @@
+ </select>`;
+ };
+ 
+-const confirmEditData = (button) => {
++const confirmEditData = async (button) => {
+   let row = button.parentNode.parentNode.parentNode;
+ 
+   button.classList.add("none");
+   button.parentNode.children[0].classList.remove("none");
+   let id = row.cells[0];
++  let idValue = id.firstChild.data;
++  console.log(idValue);
+   let loginCell = row.cells[1];
+   let roleCell = row.cells[2];
+-  console.log(roleCell);
++  let login = loginCell.firstChild.value;
++  let role = roleCell.firstChild.value;
+   loginCell.innerHTML = loginCell.firstChild.value;
+   roleCell.innerHTML = roleCell.firstChild.value;
++  const redactUser = {
++    id: idValue,
++    login: login,
++    role: role,
++  };
++  console.log(redactUser);
++  const response = await fetch(urlSend, {
++    method: "POST",
++    headers: {
++      "Content-Type": "application/json",
++    },
++    body: JSON.stringify({
++      ...redactUser,
++    }),
++  });
++  const result = await response.json();
+ };
+ 
+ const resetTable = () => {
+-  // Находим все строки таблицы
+   var tableHeaderRowCount = 1;
+   var rowCount = table.rows.length;
+   for (var i = tableHeaderRowCount; i < rowCount; i++) {
+@@ -119,6 +136,7 @@
+ };
+ 
+ const showAllusers = () => {
++  fetchFunction();
+   for (let i = 0; i < usersInfo.length; i++) {
+     insertRow(usersInfo[i]);
+   }
+@@ -146,4 +164,5 @@
+   showAllusers();
+ });
+ 
+-showAllusers();
++fetchFunction();
++showAllusers();
+\ No newline at end of file

@@ -1,0 +1,23 @@
+Index: PcClub_Api/src/main/java/com/example/PcClub/Entities/News.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PcClub_Api/src/main/java/com/example/PcClub/Entities/News.java b/PcClub_Api/src/main/java/com/example/PcClub/Entities/News.java
+new file mode 100644
+--- /dev/null	(date 1734967708669)
++++ b/PcClub_Api/src/main/java/com/example/PcClub/Entities/News.java	(date 1734967708669)
+@@ -0,0 +1,13 @@
++package com.example.PcClub.Entities;
++
++import jakarta.persistence.Entity;
++import lombok.Data;
++
++import java.util.Date;
++
++public class News {
++    private String title;
++    private String name;
++    private String body;
++    private Date timestamp;
++}

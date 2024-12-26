@@ -1,0 +1,106 @@
+<changelist name="Uncommitted_changes_before_revert_[Changes]" date="1734807681422" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_revert_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before revert [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/DTOs/JwtRequest.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/static/images/icons/icon-club.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/DTOs/JwtResponse.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/static/images/comfort-zone-pc.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Configs/JwtRequestFilter.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/src/main/resources/static/images/comfort-zone-pc.jpg" />
+    <option name="AFTER_PATH" value="PcClub_Api/src/main/resources/static/images/comfort-zone-pc.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_revert_[Changes]/comfort-zone-pc.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Services/AuthService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/static/images/icons/icon-trash.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/DTOs/UserDto.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Services/RoleService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Enums/Roles.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Services/UserService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Controllers/HomeController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Repositories/UserRepository.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/static/images/icons/icon-change.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/src/main/resources/static/images/default-zone-pc.jpg" />
+    <option name="AFTER_PATH" value="PcClub_Api/src/main/resources/static/images/default-zone-pc.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_revert_[Changes]/default-zone-pc.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Entities/User.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/PcClubApplication.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Exceptions/AppError.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/static/images/pro-zone-pc.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Configs/SecurityConfig.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Entities/Role.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/static/images/bg-image.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/static/images/icons/icon-search.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/static/images/icons/icon-confirm.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/DTOs/RegistrationUserDto.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Controllers/AuthController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Utils/JwtTokenUtils.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/com/example/PcClub/Repositories/RoleRepository.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/static/images/account-image.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/target/classes/static/images/default-zone-pc.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="PcClub_Api/src/main/resources/static/images/pro-zone-pc.jpg" />
+    <option name="AFTER_PATH" value="PcClub_Api/src/main/resources/static/images/pro-zone-pc.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_revert_[Changes]/pro-zone-pc.jpg" />
+  </binary>
+</changelist>
