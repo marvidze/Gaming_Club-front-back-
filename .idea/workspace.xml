@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc0df3b-e9ff-4297-84ce-189673521548" name="Changes" comment="Дто для новых новосте и метод для добавления">
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/pages/account-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/pages/account-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Configs/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Configs/JwtRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Utils/JwtTokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Utils/JwtTokenUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/form-register-sign-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/form-register-sign-in.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/pages/account-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/target/classes/static/pages/account-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/account-page/form-register-sign-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/account-page/form-register-sign-in.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

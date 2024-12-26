@@ -144,9 +144,6 @@ uploadAvatar.addEventListener("change", async function (event) {
 
   const response = await fetch(urlPicUpload, {
     method: "POST",
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
     body: formData,
   });
   const result = await response.text();
