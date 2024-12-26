@@ -88,6 +88,24 @@
   width: 100%;
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.icon-plus {
+  transition: 0.2s;
+  height: 100px;
+  margin-inline: auto;
+  cursor: pointer;
+}
+
+.icon-plus:hover {
+  transition: 0.2s;
+  height: 120px;
+  margin-inline: auto;
+}
+
 .none {
   display: none;
 }

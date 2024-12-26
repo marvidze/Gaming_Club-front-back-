@@ -1,0 +1,36 @@
+.big-name {
+  font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 70pt;
+  text-decoration: underline;
+  color: white;
+  margin-block: auto;
+  margin-left: 20px;
+}
+
+.text-area {
+  border-radius: 20px;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.374);
+  margin-top: 100px;
+  margin-left: 20px;
+  height: 260px;
+  width: 1000px;
+}
+
+.text-blur-area {
+  border-radius: 20px;
+  backdrop-filter: blur(3px);
+  height: 100%;
+  width: 100%;
+}
+
+.text-about-club {
+  font-family: Arial;
+  font-size: 20pt;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.6);
+  margin-inline: 20px;
+  width: 65%;
+}
