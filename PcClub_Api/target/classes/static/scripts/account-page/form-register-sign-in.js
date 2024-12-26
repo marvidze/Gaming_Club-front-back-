@@ -18,7 +18,7 @@ const account_avatar = document.querySelector(".account_avatar");
 
 const errorMessage = document.querySelector(".error_message");
 
-const uploadAvatar = document.getElementById(".upload-avatar");
+const uploadAvatar = document.getElementById("upload-avatar");
 
 const accountName = document.getElementById(".account_name");
 
@@ -39,6 +39,12 @@ signInFormElement.addEventListener("submit", async (event) => {
   const result = await response.json();
 
   if (result.ok) {
+    const parts = result.token.split(".");
+    const decodedPayload = base64UrlDecode(parts[1]);
+    const payload = JSON.parse(decodedPayload);
+    console.log(payload);
+    accountName.innerText = decodedPayload.sub;
+
     sectionAuthorization.classList.add("hide-trans");
     setTimeout(() => {
       sectionAuthorization.classList.add("hide");
