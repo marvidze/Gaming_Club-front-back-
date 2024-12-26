@@ -39,12 +39,11 @@ signInFormElement.addEventListener("submit", async (event) => {
   });
   const result = await response.json();
 
-  if (result.ok) {
-    const parts = result.token.split(".");
-    const decodedPayload = base64UrlDecode(parts[1]);
-    const payload = JSON.parse(decodedPayload);
-    console.log(payload);
-    accountName.innerText = decodedPayload.sub;
+  if (result.status == 200) {
+    localStorage.setItem("token", result.token);
+    const decodedToken = parseJWT(result.token);
+    console.log(decodedToken);
+    accountName.innerText = decodedToken.sub;
 
     sectionAuthorization.classList.add("hide-trans");
     setTimeout(() => {
@@ -76,6 +75,7 @@ registerFormElement.addEventListener("submit", async (event) => {
     const result = await response.json();
 
     if (result.status == 200) {
+      localStorage.setItem("token", result.token);
       sectionAuthorization.classList.add("hide-trans");
       setTimeout(() => {
         sectionAuthorization.classList.add("hide");
@@ -103,9 +103,11 @@ btn_log.onclick = () => {
 };
 
 uploadAvatar.addEventListener("change", async function (event) {
+  const token = localStorage.getItem("token");
   const file = event.target.files[0]; // Получаем первый выбранный файл
   const formData = new FormData();
-  formData.append("image", file, "image.png");
+  formData.append("image", file);
+  formData.append("token", token);
 
   const response = await fetch("URL", {
     method: "POST",
@@ -118,3 +120,18 @@ uploadAvatar.addEventListener("change", async function (event) {
 
   account_avatar.src = result.ProfileImageURL;
 });
+
+function parseJWT(token) {
+  var base64Url = token.split(".")[1];
+  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  var jsonPayload = decodeURIComponent(
+    window
+      .atob(base64)
+      .split("")
+      .map(function (c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join("")
+  );
+  return JSON.parse(jsonPayload);
+}
