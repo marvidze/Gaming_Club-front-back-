@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const day = String(date.getDate()).padStart(2, "0");
     const resultDate = `${year}.${month}.${day}`;
 
-    console.log(urlGetTimes + selectedZone.id);
     //    const response = await fetch(urlGetTimes + selectedZone.id);
     //    const result = await response.json();
     //

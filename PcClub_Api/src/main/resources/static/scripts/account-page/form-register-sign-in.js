@@ -68,7 +68,6 @@ signInFormElement.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData(signInFormElement);
   const formDataObject = Object.fromEntries(formData);
-  console.log(formDataObject);
   const response = await fetch(urlLog, {
     method: "POST",
     headers: {
