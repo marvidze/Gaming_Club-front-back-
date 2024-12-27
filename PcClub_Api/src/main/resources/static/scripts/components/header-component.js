@@ -100,7 +100,7 @@ header.insertAdjacentHTML(
                         >
                       </div>
                     </li>
-                    ${currentUser == "admin" ? htmlForAdmin : ``}
+                    ${currentUser == "ROLE_admin_user" ? htmlForAdmin : ``}
                     <li class="header_dropdonw-menu-item-area">
                       <div class="header_dropdown-menu-item-shadow">
                         <a
