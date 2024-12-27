@@ -52,8 +52,8 @@ const clickConfirmIcon = async (button) => {
   let headerContent = header.firstChild.value;
   let bodyContent = body.firstChild.value;
 
-  header.innerHTML = `${header.firstChild.value}`;
-  body.innerHTML = `${body.firstChild.value}`;
+  header.innerHTML = `${headerContent}`;
+  body.innerHTML = `${bodyContent}`;
 
   let redactNews = {
     id: id,

@@ -4,11 +4,6 @@ let urlDelete = "http://localhost:8080/users/delete?id=";
 
 let usersInfo = new Array();
 
-async function fetchFunction() {
-  const response = await fetch(url);
-  usersInfo = await response.json();
-}
-
 // let usersInfo = [
 //   {
 //     id: "0",
@@ -139,8 +134,9 @@ const resetTable = () => {
   }
 };
 
-const showAllusers = () => {
-  fetchFunction();
+const showAllusers = async () => {
+  const response = await fetch(url);
+  usersInfo = await response.json();
   for (let i = 0; i < usersInfo.length; i++) {
     insertRow(usersInfo[i]);
   }
@@ -168,5 +164,4 @@ buttonShowAll.addEventListener("click", () => {
   showAllusers();
 });
 
-fetchFunction();
 showAllusers();
