@@ -87,17 +87,11 @@ signInFormElement.addEventListener("submit", async (event) => {
     const decodedToken = parseJWT(result.token);
     accountName.innerText = decodedToken.sub;
 
-    const responseImg = await fetch(urlLog, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        url: decodedToken.iconUrl,
-      }),
-    });
-    const resultImg = await responseImg.blob();
-    console.log(resultImg);
+    const responseDownload = await fetch(urlPicDownload + "/" + result);
+    const resultDownload = await responseDownload.blob();
+    if (resultDownload != null) {
+      account_avatar.src = URL.createObjectURL(resultDownload);
+    }
 
     sectionAuthorization.classList.add("hide-trans");
     setTimeout(() => {
@@ -137,6 +131,16 @@ registerFormElement.addEventListener("submit", async (event) => {
     localStorage.setItem("token", result.token);
     localStorage.setItem("login", formDataObject.login);
     localStorage.setItem("password", formDataObject.password);
+
+    const decodedToken = parseJWT(result.token);
+    accountName.innerText = decodedToken.sub;
+
+    const responseDownload = await fetch(urlPicDownload + "/" + result);
+    const resultDownload = await responseDownload.blob();
+    if (resultDownload != null) {
+      account_avatar.src = URL.createObjectURL(resultDownload);
+    }
+
     sectionAuthorization.classList.add("hide-trans");
     setTimeout(() => {
       sectionAuthorization.classList.add("hide");
@@ -177,5 +181,7 @@ uploadAvatar.addEventListener("change", async function (event) {
 
   const responseDownload = await fetch(urlPicDownload + "/" + result);
   const resultDownload = await responseDownload.blob();
-  account_avatar.src = URL.createObjectURL(resultDownload);
+  if (resultDownload != null) {
+    account_avatar.src = URL.createObjectURL(resultDownload);
+  }
 });
