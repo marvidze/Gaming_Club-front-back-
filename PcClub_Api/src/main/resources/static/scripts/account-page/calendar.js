@@ -71,52 +71,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     //    const result = await response.json();
     //
     //    let arrayDates = result; // массив объектов
-
-    arrayDates = [
-      {
-        date: "27",
-        time: "1",
-      },
-      {
-        date: "27",
-        time: "2",
-      },
-      {
-        date: "27",
-        time: "3",
-      },
-      {
-        date: "27",
-        time: "4",
-      },
-    ];
-
-    let timesRow = document.getElementById("times-row");
-    let checkboxes = ``;
-
-    for (let i = 0; i < arrayAllDates.length; i++) {
-      let checkbox = `
-    <input
-      class="input_time"
-      type="checkbox"
-      id=${"time" + idForCheckbox}
-      hidden
-    />
-    <label class="label_time" for=${"time" + idForCheckbox}>
-      ${
-        arrayAllDates[i] < 10
-          ? "0" + arrayAllDates[i] + " : 00"
-          : arrayAllDates[i] + " : 00"
-      }
-    </label>
-    `;
-
-      idForCheckbox++;
-
-      checkboxes += checkbox;
-    }
-
-    timesRow.innerHTML = checkboxes;
   }
 });
 
