@@ -33,21 +33,6 @@ const urlLogoForPages = ".././";
 const urlPagesForIndex = "./pages/";
 const urlPagesForPages = "./";
 
-const htmlForAdmin = `<li class="header_dropdonw-menu-item-area">
-                      <div class="header_dropdown-menu-item-shadow">
-                        <a
-                          class="header_dropdonw-menu-item"
-                          href=${
-                            document.URL.includes("index")
-                              ? urlPagesForIndex + urlForUserTablePage
-                              : urlPagesForPages + urlForUserTablePage
-                          }
-                          >КЛИЕНТЫ</a
-                        >
-                      </div>
-                    </li>
-                   `;
-
 header.insertAdjacentHTML(
   "beforeend",
   `<header class="header_area">
@@ -100,7 +85,24 @@ header.insertAdjacentHTML(
                         >
                       </div>
                     </li>
-                    ${currentUser == "ROLE_admin_user" ? htmlForAdmin : ``}
+                    ${
+                      currentUser == "ROLE_admin_user"
+                        ? `<li class="header_dropdonw-menu-item-area">
+                      <div class="header_dropdown-menu-item-shadow">
+                        <a
+                          class="header_dropdonw-menu-item"
+                          href=${
+                            document.URL.includes("index")
+                              ? urlPagesForIndex + urlForUserTablePage
+                              : urlPagesForPages + urlForUserTablePage
+                          }
+                          >КЛИЕНТЫ</a
+                        >
+                      </div>
+                    </li>
+                   `
+                        : ``
+                    }
                     <li class="header_dropdonw-menu-item-area">
                       <div class="header_dropdown-menu-item-shadow">
                         <a
