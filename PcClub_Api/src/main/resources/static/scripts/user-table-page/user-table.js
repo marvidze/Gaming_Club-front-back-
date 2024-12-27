@@ -167,7 +167,7 @@ if (userRole == "ROLE_admin_user") {
   showAllusers();
 } else {
   document.getElementById("main").innerHTML = `
-    <div>ОШИБКА ДОСТУПА</div>
+    <div class="h">ОШИБКА ДОСТУПА</div>
   `;
 }
 
