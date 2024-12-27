@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (currentUser == "ROLE_admin_user") {
         btnAnimate.classList.remove("header_btn-open-admin");
       } else if (currentUser == "ROLE_moderator_user") {
-        btnAnimate.classList.remove("header_btn-open-moderator");
+        btnAnimate.classList.remove("header_btn-open");
       } else {
         btnAnimate.classList.remove("header_btn-open");
       }
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (currentUser == "ROLE_admin_user") {
         btnAnimate.classList.add("header_btn-open-admin");
       } else if (currentUser == "ROLE_moderator_user") {
-        btnAnimate.classList.add("header_btn-open-moderator");
+        btnAnimate.classList.add("header_btn-open");
       } else {
         btnAnimate.classList.add("header_btn-open");
       }
