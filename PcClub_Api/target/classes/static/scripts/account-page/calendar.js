@@ -1,4 +1,4 @@
-const urlGetTimes = "http://localhost:8080/slots/all";
+const urlGetTimes = "http://localhost:8080/slots/";
 const urlReservation = "http://localhost:8080/slots/addSlot";
 
 const calendar = document.querySelector(".date_row");
@@ -23,25 +23,18 @@ arraySevenDays.forEach((item, index) => {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const selectedZone = document.querySelector("#form_zones input:checked");
-  let date = new Date();
-  const year = date.getFullYear().toString();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  const resultDate = `${year}.${month}.${day}`;
+  if (localStorage.getItem("login") != null && localStorage.getItem("password") != null) {
+    const selectedZone = document.querySelector("#form_zones input:checked");
+    let date = new Date();
+    const year = date.getFullYear().toString();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const resultDate = `${year}.${month}.${day}`;
 
-  const response = await fetch(urlGetTimes, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      zone: selectedZone.id,
-      date: resultDate,
-    }),
-  });
-  const result = await response.json();
-  console.log(result);
+    const response = await fetch(urlGetTimes + selectedZone.id);
+    const result = await response.json();
+    console.log(result);
+  }
 });
 
 btnReservation.addEventListener("click", async () => {

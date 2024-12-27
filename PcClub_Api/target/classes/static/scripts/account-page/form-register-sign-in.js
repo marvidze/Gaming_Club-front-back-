@@ -1,10 +1,11 @@
 const urlLog = "http://localhost:8080/auth";
 const urlReg = "http://localhost:8080/registration";
 const urlPicDownload = "http://localhost:8080/files/download";
-const urlPicUoload = "http://localhost:8080/files/upload";
+const urlPicUpload = "http://localhost:8080/files/upload";
 
 const sectionAuthorization = document.querySelector(".section_authorization");
 const sectionProfile = document.querySelector(".section_profile");
+const loader = document.querySelector(".loader");
 
 const btn_reg = document.querySelector(".link-registration");
 const btn_log = document.querySelector(".link-login");
@@ -28,7 +29,7 @@ const accountName = document.querySelector(".account_name");
 document.addEventListener("DOMContentLoaded", async function () {
   const login = localStorage.getItem("login");
   const password = localStorage.getItem("password");
-  if (login !== null && password !== null) {
+  if (login != null && password != null) {
     const response = await fetch(urlLog, {
       method: "POST",
       headers: {
@@ -40,13 +41,19 @@ document.addEventListener("DOMContentLoaded", async function () {
       }),
     });
     const result = await response.json();
-  }
 
-  if (result.status === 200) {
-    const decodedToken = parseJWT(result.token);
-    accountName.innerText = decodedToken.sub;
-    sectionAuthorization.classList.add("hide");
-    sectionProfile.classList.remove("hide");
+    if (result.status == 200) {
+      const decodedToken = parseJWT(result.token);
+      accountName.innerText = decodedToken.sub;
+      loader.classList.add("hide");
+      sectionProfile.classList.remove("hide");
+    } else {
+      loader.classList.add("hide");
+      sectionAuthorization.classList.remove("hide");
+    }
+  } else {
+    loader.classList.add("hide");
+    sectionAuthorization.classList.remove("hide");
   }
 });
 
@@ -93,6 +100,7 @@ signInFormElement.addEventListener("submit", async (event) => {
   } else {
     errorMessage.textContent = "Логин или пароль неверный!";
     errorMessage.classList.remove("hide");
+    s;
   }
 });
 
