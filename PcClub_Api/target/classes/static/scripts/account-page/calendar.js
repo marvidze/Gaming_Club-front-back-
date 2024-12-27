@@ -33,7 +33,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const response = await fetch(urlGetTimes + selectedZone.id);
     const result = await response.json();
-    console.log(result);
+
+    const arrayDates = result; // массив объектов
+    //
+
+    /////////////////////////////       сюда
+
+    //
   }
 });
 
