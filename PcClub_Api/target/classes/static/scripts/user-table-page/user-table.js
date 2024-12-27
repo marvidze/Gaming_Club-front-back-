@@ -166,9 +166,9 @@ if (userRole == "ROLE_admin_user") {
   fetchFunction();
   showAllusers();
 } else {
-  let h1 = document.createElement("h1");
-  h1.value = "ПОШЁЛ НАХУЙ ОТСЮДА!";
-  document.getElementById("main").innerHTML = h1;
+  document.getElementById("main").innerHTML = `
+    <div class="h">ПОШЁЛ НАХУЙ ОТСЮДА</div>
+  `;
 }
 
 // let usersInfo = [
