@@ -51,6 +51,7 @@ const renderTimes = (element) => {
       arrayAllDates.splice(index, 1);
     }
   }
+};
 document.addEventListener("DOMContentLoaded", async () => {
   if (
     localStorage.getItem("login") != null &&
@@ -66,10 +67,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const resultDate = `${year}.${month}.${day}`;
 
     console.log(urlGetTimes + selectedZone.id);
-//    const response = await fetch(urlGetTimes + selectedZone.id);
-//    const result = await response.json();
-//
-//    let arrayDates = result; // массив объектов
+    //    const response = await fetch(urlGetTimes + selectedZone.id);
+    //    const result = await response.json();
+    //
+    //    let arrayDates = result; // массив объектов
 
     arrayDates = [
       {
@@ -90,11 +91,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       },
     ];
 
-  let timesRow = document.getElementById("times-row");
-  let checkboxes = ``;
+    let timesRow = document.getElementById("times-row");
+    let checkboxes = ``;
 
-  for (let i = 0; i < arrayAllDates.length; i++) {
-    let checkbox = `
+    for (let i = 0; i < arrayAllDates.length; i++) {
+      let checkbox = `
     <input
       class="input_time"
       type="checkbox"
@@ -110,13 +111,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     </label>
     `;
 
-    idForCheckbox++;
+      idForCheckbox++;
 
-    checkboxes += checkbox;
+      checkboxes += checkbox;
+    }
+
+    timesRow.innerHTML = checkboxes;
   }
-
-  timesRow.innerHTML = checkboxes;
-};
+});
 
 document.addEventListener("DOMContentLoaded", async () => {
   if (
