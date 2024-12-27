@@ -17,12 +17,10 @@ const parseJWT = (token) => {
 
 let currentUser;
 
-window.onload = () => {
-  const token = localStorage.getItem("token");
-  const decodedToken = parseJWT(token);
-  currentUser = decodedToken.roles[0];
-  console.log(currentUser);
-};
+const token = localStorage.getItem("token");
+const decodedToken = parseJWT(token);
+currentUser = decodedToken.roles[0];
+console.log(currentUser);
 
 const urlForLogo = "images/icons/icon-club.png";
 const urlForAccountPage = "account-page.html";
