@@ -22,7 +22,7 @@ arraySevenDays.forEach((item, index) => {
   item.innerText = formattedDate;
 });
 
-const renderTimes = (element) => {
+const renderTimes = async (element) => {
   let arrayAllDates = [
     "1",
     "2",
@@ -44,6 +44,10 @@ const renderTimes = (element) => {
   let plusNumber = element.htmlFor;
 
   let arrayDates = new Array();
+  const response = await fetch(urlGetTimes + selectedZone.id);
+  const result = await response.json();
+
+  arrayDates = result;
 
   for (let i = 0; i < arrayDates.length; i++) {
     if (arrayDates[i].date == Number(day) + Number(plusNumber)) {
@@ -52,26 +56,6 @@ const renderTimes = (element) => {
     }
   }
 };
-document.addEventListener("DOMContentLoaded", async () => {
-  if (
-    localStorage.getItem("login") != null &&
-    localStorage.getItem("password") != null
-  ) {
-    let idForCheckbox = 0;
-
-    const selectedZone = document.querySelector("#form_zones input:checked");
-    let date = new Date();
-    const year = date.getFullYear().toString();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-    const resultDate = `${year}.${month}.${day}`;
-
-    //    const response = await fetch(urlGetTimes + selectedZone.id);
-    //    const result = await response.json();
-    //
-    //    let arrayDates = result; // массив объектов
-  }
-});
 
 document.addEventListener("DOMContentLoaded", async () => {
   if (
