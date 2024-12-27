@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const resultDate = `${year}.${month}.${day}`;
 
     console.log(urlGetTimes + selectedZone.id);
-    const response = await fetch(urlGetTimes + selectedZone.id);
-    const result = await response.json();
-
-    let arrayDates = result; // массив объектов
+//    const response = await fetch(urlGetTimes + selectedZone.id);
+//    const result = await response.json();
+//
+//    let arrayDates = result; // массив объектов
 
     arrayDates = [
       {

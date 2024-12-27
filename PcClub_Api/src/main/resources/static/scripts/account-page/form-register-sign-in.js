@@ -164,8 +164,13 @@ uploadAvatar.addEventListener("change", async function (event) {
 
   const response = await fetch(urlPicUpload, {
     method: "POST",
-    body: decodedToken.token,
+    body: formData,
   });
   const result = await response.text();
-  console.log(result);
+
+  const responseDownload = await fetch(urlPicDownload + "/" + result);
+  console.log(responseDownload);
+  const resultDownload = await responseDownload.blob();
+  account_avatar.src = URL.createObjectURL(resultDownload);
+//  console.log(resultDownload);
 });

@@ -16,10 +16,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.UUID;
 
 @Service
@@ -30,13 +29,13 @@ public class FileService {
     private String uploadPath;
 
     public ResponseEntity<?> downloadFile(String file) throws IOException {
-        ClassPathResource imgFile = new ClassPathResource(file);
+        File  imgFile = new File (uploadPath + "/" + file);
 
-        byte[] bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
+        byte[] bytes = StreamUtils.copyToByteArray(new FileInputStream(imgFile));
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.IMAGE_JPEG);
-        headers.setContentLength(imgFile.contentLength());
+        headers.setContentLength(imgFile.length());
 
         return new ResponseEntity<>(bytes, headers, HttpStatus.OK);
     }
@@ -78,6 +77,6 @@ public class FileService {
             e.printStackTrace();
         }
 
-        return ResponseEntity.ok(uploadPath + "\\" + user.getProfile_icon_url());
+        return ResponseEntity.ok(user.getProfile_icon_url());
     }
 }

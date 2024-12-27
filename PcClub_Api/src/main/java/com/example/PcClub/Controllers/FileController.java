@@ -20,8 +20,8 @@ public class FileController {
         return fileService.uploadFile(file, login);
     }
 
-    @GetMapping("/download")
-    public ResponseEntity<?> download(String file) throws IOException {
+    @GetMapping("/download/{file}")
+    public ResponseEntity<?> download(@PathVariable String file) throws IOException {
         return fileService.downloadFile(file);
     }
 }
