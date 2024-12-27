@@ -49,13 +49,16 @@ const clickConfirmIcon = async (button) => {
   let header = news.children[1];
   let body = news.children[2];
 
+  let headerContent = header.firstChild.value;
+  let bodyContent = body.firstChild.value;
+
   header.innerHTML = `${header.firstChild.value}`;
   body.innerHTML = `${body.firstChild.value}`;
 
   let redactNews = {
     id: id,
-    title: header.firstChild.value,
-    body: body.firstChild.value,
+    title: headerContent,
+    body: bodyContent,
   };
 
   const response = await fetch(URLForChangeNews, {
