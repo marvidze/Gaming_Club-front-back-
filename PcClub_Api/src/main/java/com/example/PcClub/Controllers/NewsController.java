@@ -33,7 +33,7 @@ public class NewsController {
         return ResponseEntity.ok(newsService.updateNews(newsDto));
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public ResponseEntity<?> delete(@RequestParam int id) {
         Optional<News> news = newsService.deleteNews(id);
 

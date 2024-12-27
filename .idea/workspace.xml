@@ -6,13 +6,46 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc0df3b-e9ff-4297-84ce-189673521548" name="Changes" comment="Дто для новых новосте и метод для добавления">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Configs/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Configs/JwtRequestFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Utils/JwtTokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Utils/JwtTokenUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/form-register-sign-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/form-register-sign-in.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/account-page/form-register-sign-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/account-page/form-register-sign-in.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/NewsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/NewsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/FileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/account-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/avatar-default.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/bg-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/comfort-zone-pc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/default-zone-pc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/icons/icon-change.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/icons/icon-club.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/icons/icon-confirm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/icons/icon-plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/icons/icon-search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/icons/icon-trash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/new-year.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/placekitten.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/pro-zone-pc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/stalkraft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/team-spirit.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/pages/account-page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/pages/price-page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/pages/user-table-page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/account-page/calendar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/account-page/form-register-sign-in.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/components/header-component.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/home-page/home-page.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/user-table-page/user-table.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/account-page/account-page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/account-page/calendar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/account-page/main_account-page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/base/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/base/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/home-page/home-page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/home-page/main_home-page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/home-page/news.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/price-page/main_price-page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/price-page/price-page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/user-table-page/user-table-page.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,17 +92,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.PcClubApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/Git repo/JavaLaba5&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.PcClubApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "G:/Git repo/JavaLaba5"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -166,6 +199,11 @@
           <properties class="org.springframework.data.mapping.PropertyReferenceException" package="org.springframework.data.mapping" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/NewsController.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
