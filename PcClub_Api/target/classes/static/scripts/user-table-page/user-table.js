@@ -135,6 +135,7 @@ const resetTable = () => {
 };
 
 const showAllusers = async () => {
+  createUsersArray();
   for (let i = 0; i < usersInfo.length; i++) {
     insertRow(usersInfo[i]);
   }
