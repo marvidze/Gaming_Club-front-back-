@@ -182,7 +182,7 @@ const addNewNews = (headerContent, bodyContent, imgContent, id) => {
 const addNews = () => {
   for (let i = 0; i < newsArray.length; i++) {
     addNewNews(
-      newsArray[i].header,
+      newsArray[i].title,
       newsArray[i].body,
       newsArray[i].img,
       newsArray[i].id
