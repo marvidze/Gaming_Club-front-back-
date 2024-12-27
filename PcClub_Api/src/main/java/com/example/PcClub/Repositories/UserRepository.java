@@ -13,6 +13,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     Optional<User> findByLogin(String login);
     Optional<User> getUserById(Integer id);
     Optional<User> deleteUserById(int id);
+    //String getProfileIconUrlByLogin(String login);
 
     @Query("SELECT u FROM User u ORDER BY u.id ASC LIMIT :n")
     List<User> findFirstNByIdOrderByIdAsc(int n);

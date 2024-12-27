@@ -1,5 +1,6 @@
 package com.example.PcClub.Utils;
 
+import com.example.PcClub.Entities.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -17,18 +18,22 @@ import java.util.stream.Collectors;
 
 @Component
 public class JwtTokenUtils {
+    @Value("${upload.path}")
+    private String uploadPath;
+
     @Value("${jwt.secret}")
     private String secret;
 
     @Value("${jwt.expiration.string}")
     private Duration expiration;
 
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(UserDetails userDetails, User user) {
         Map<String, Object> claims = new HashMap<>();
         List<String> rolesList = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
         claims.put("roles", rolesList);
+        claims.put("iconUrl", (uploadPath + "\\" + user.getProfile_icon_url()));
 
         Date issuedDate = new Date();
         Date expiredDate =  new Date(issuedDate.getTime() + expiration.toMillis());
@@ -49,6 +54,8 @@ public class JwtTokenUtils {
     public List<String> getRoles(String token) {
         return getAllClaimsFromToken(token).get("roles", List.class);
     }
+
+    public String getIconUrl(String token) { return getAllClaimsFromToken(token).get("iconUrl", String.class); }
 
     private Claims getAllClaimsFromToken(String token) {
         return Jwts.parser()

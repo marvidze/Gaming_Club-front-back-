@@ -1,5 +1,6 @@
 const urlLog = "http://localhost:8080/auth";
 const urlReg = "http://localhost:8080/registration";
+const urlPicUpload = "http://localhost:8080/files/upload";
 
 const sectionAuthorization = document.querySelector(".section_authorization");
 const sectionProfile = document.querySelector(".section_profile");
@@ -23,11 +24,37 @@ const uploadAvatar = document.getElementById("upload-avatar");
 
 const accountName = document.querySelector(".account_name");
 
+document.addEventListener("DOMContentLoaded", async function () {
+  const login = localStorage.getItem("login");
+  const password = localStorage.getItem("password");
+
+  const response = await fetch(urlLog, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      login: login,
+      password: password,
+    }),
+  });
+
+  const result = await response.json();
+
+  if (result.status === 200) {
+    const decodedToken = parseJWT(result.token);
+    accountName.innerText = decodedToken.sub;
+    sectionAuthorization.classList.add("hide");
+    sectionProfile.classList.remove("hide");
+    account_avatar.src = `../../../../../../../{decodedToken.iconURL}`;
+  }
+});
+
 signInFormElement.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData(signInFormElement);
   const formDataObject = Object.fromEntries(formData);
-
+  console.log(formDataObject);
   const response = await fetch(urlLog, {
     method: "POST",
     headers: {
@@ -39,12 +66,12 @@ signInFormElement.addEventListener("submit", async (event) => {
   });
   const result = await response.json();
 
-  if (result.ok) {
-    const parts = result.token.split(".");
-    const decodedPayload = base64UrlDecode(parts[1]);
-    const payload = JSON.parse(decodedPayload);
-    console.log(payload);
-    accountName.innerText = decodedPayload.sub;
+  if (result.status == 200) {
+    localStorage.setItem("token", result.token);
+    localStorage.setItem("login", formDataObject.login);
+    localStorage.setItem("password", formDataObject.password);
+    const decodedToken = parseJWT(result.token);
+    accountName.innerText = decodedToken.sub;
 
     sectionAuthorization.classList.add("hide-trans");
     setTimeout(() => {
@@ -76,6 +103,9 @@ registerFormElement.addEventListener("submit", async (event) => {
     const result = await response.json();
 
     if (result.status == 200) {
+      localStorage.setItem("token", result.token);
+      localStorage.setItem("login", formDataObject.login);
+      localStorage.setItem("password", formDataObject.password);
       sectionAuthorization.classList.add("hide-trans");
       setTimeout(() => {
         sectionAuthorization.classList.add("hide");
@@ -103,18 +133,34 @@ btn_log.onclick = () => {
 };
 
 uploadAvatar.addEventListener("change", async function (event) {
+  const token = localStorage.getItem("token");
+  const decodedToken = parseJWT(token);
+  const login = decodedToken.sub;
   const file = event.target.files[0]; // Получаем первый выбранный файл
   const formData = new FormData();
-  formData.append("image", file, "image.png");
+  formData.append("file", file);
+  formData.append("login", login);
 
-  const response = await fetch("URL", {
+  const response = await fetch(urlPicUpload, {
     method: "POST",
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
     body: formData,
   });
-  const result = await response.json();
+  const result = await response.text();
 
-  account_avatar.src = result.ProfileImageURL;
+  account_avatar.src = `../../../../../../../{result}`;
 });
+
+function parseJWT(token) {
+  var base64Url = token.split(".")[1];
+  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  var jsonPayload = decodeURIComponent(
+    window
+      .atob(base64)
+      .split("")
+      .map(function (c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join("")
+  );
+  return JSON.parse(jsonPayload);
+}
