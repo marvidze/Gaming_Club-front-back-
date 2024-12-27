@@ -22,4 +22,9 @@ public class SlotController {
     public ResponseEntity<?> allSlots() {
         return ResponseEntity.ok(slotService.getAllSlotSlotReservation());
     }
+
+    @GetMapping("/{zone}")
+    public ResponseEntity<?> getSlotsByZone(@PathVariable String zone) {
+        return ResponseEntity.ok(slotService.getSlotsByZone(zone));
+    }
 }
