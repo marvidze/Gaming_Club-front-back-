@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   } else {
     loader.classList.add("hide");
-    sectionAuthorization.classList.remove("hide");
+    // sectionAuthorization.classList.remove("hide");
   }
 });
 
