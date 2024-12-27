@@ -46,7 +46,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       const decodedToken = parseJWT(result.token);
       accountName.innerText = decodedToken.sub;
 
-      const responseDownload = await fetch(urlPicDownload + "/" + decodedToken.iconUrl);
+      const responseDownload = await fetch(
+        urlPicDownload + "/" + decodedToken.iconUrl
+      );
       const resultDownload = await responseDownload.blob();
       if (resultDownload != null) {
         account_avatar.src = URL.createObjectURL(resultDownload);
@@ -86,7 +88,9 @@ signInFormElement.addEventListener("submit", async (event) => {
     const decodedToken = parseJWT(result.token);
     accountName.innerText = decodedToken.sub;
 
-    const responseDownload = await fetch(urlPicDownload + "/" + decodedToken.iconUrl);
+    const responseDownload = await fetch(
+      urlPicDownload + "/" + decodedToken.iconUrl
+    );
     const resultDownload = await responseDownload.blob();
     if (resultDownload != null) {
       account_avatar.src = URL.createObjectURL(resultDownload);
@@ -134,7 +138,9 @@ registerFormElement.addEventListener("submit", async (event) => {
     const decodedToken = parseJWT(result.token);
     accountName.innerText = decodedToken.sub;
 
-    const responseDownload = await fetch(urlPicDownload + "/" + decodedToken.iconUrl);
+    const responseDownload = await fetch(
+      urlPicDownload + "/" + decodedToken.iconUrl
+    );
     const resultDownload = await responseDownload.blob();
     if (resultDownload != null) {
       account_avatar.src = URL.createObjectURL(resultDownload);
@@ -183,4 +189,13 @@ uploadAvatar.addEventListener("change", async function (event) {
   if (resultDownload != null) {
     account_avatar.src = URL.createObjectURL(resultDownload);
   }
+});
+
+const buttonExit = document.getElementById("btn_exit");
+
+buttonExit.addEventListener("click", () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("login");
+  localStorage.removeItem("password");
+  window.location.reload();
 });
