@@ -1,4 +1,6 @@
 const url = "http://localhost:8080/users/nUsers?n=100";
+const urlSend = "http://localhost:8080/users/update";
+let urlDelete = "http://localhost:8080/users/delete?id=";
 
 let usersInfo = new Array();
 
@@ -7,7 +9,23 @@ async function fetchFunction() {
   usersInfo = await response.json();
 }
 
-fetchFunction();
+// let usersInfo = [
+//   {
+//     id: "0",
+//     login: "marat",
+//     role: "admin",
+//   },
+//   {
+//     id: "1",
+//     login: "nikita",
+//     role: "moderator",
+//   },
+//   {
+//     id: "2",
+//     login: "vlad",
+//     role: "common",
+//   },
+// ];
 
 const redact = `
     <div class="table-actions">
@@ -48,7 +66,7 @@ const insertRow = (user) => {
   table.appendChild(row);
 };
 
-const deleteData = (button) => {
+const deleteData = async (button) => {
   let row = button.parentNode.parentNode.parentNode;
   row.parentNode.removeChild(row);
   for (i = 0; i < usersInfo.length; i++) {
@@ -57,6 +75,11 @@ const deleteData = (button) => {
       console.log(usersInfo);
     }
   }
+
+  let userId = row.cells[0].firstChild.data;
+
+  const response = await fetch(urlDelete + userId);
+  const result = await response.json();
 };
 
 const editData = (button) => {
@@ -64,8 +87,6 @@ const editData = (button) => {
 
   button.classList.add("none");
   button.parentNode.children[1].classList.remove("none");
-  // .log((confirmButton = button.parentNode.children[1]))
-  // ;
 
   let loginCell = row.cells[1];
   let roleCell = row.cells[2];
@@ -78,21 +99,38 @@ const editData = (button) => {
 </select>`;
 };
 
-const confirmEditData = (button) => {
+const confirmEditData = async (button) => {
   let row = button.parentNode.parentNode.parentNode;
 
   button.classList.add("none");
   button.parentNode.children[0].classList.remove("none");
   let id = row.cells[0];
+  let idValue = id.firstChild.data;
+  console.log(idValue);
   let loginCell = row.cells[1];
   let roleCell = row.cells[2];
-  console.log(roleCell);
+  let login = loginCell.firstChild.value;
+  let role = roleCell.firstChild.value;
   loginCell.innerHTML = loginCell.firstChild.value;
   roleCell.innerHTML = roleCell.firstChild.value;
+  const redactUser = {
+    id: idValue,
+    login: login,
+    role: role,
+  };
+  const response = await fetch(urlSend, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      ...redactUser,
+    }),
+  });
+  const result = await response.json();
 };
 
 const resetTable = () => {
-  // Находим все строки таблицы
   var tableHeaderRowCount = 1;
   var rowCount = table.rows.length;
   for (var i = tableHeaderRowCount; i < rowCount; i++) {
@@ -101,6 +139,7 @@ const resetTable = () => {
 };
 
 const showAllusers = () => {
+  fetchFunction();
   for (let i = 0; i < usersInfo.length; i++) {
     insertRow(usersInfo[i]);
   }
@@ -128,4 +167,5 @@ buttonShowAll.addEventListener("click", () => {
   showAllusers();
 });
 
+fetchFunction();
 showAllusers();

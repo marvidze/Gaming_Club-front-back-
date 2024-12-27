@@ -1,13 +1,25 @@
 let newsArray = new Array();
 
+const URLForUserRole = "";
+const URLForNewsArray = "localhost:8080/news/getNLastNews?n=100";
+const URLForAddNews = "localhost:8080/news/addNews";
+const URLForChangeNews = "localhost:8080/news/update";
+const URLForDeleteNews = "localhost:8080/news/delete?id=";
+
 let userRole;
 
-// const url = "";
-
 // const getUserRole = async () => {
-//   const response = await fetch(url);
+//   const response = await fetch(URLForUserRole);
 //   const userRole = await response.json();
 // };
+
+async function fetchFunction() {
+  console.log("hi");
+  const response = await fetch(URLForNewsArray);
+  newsArray = await response.json();
+}
+
+fetchFunction();
 
 userRole = "moderator";
 
@@ -16,16 +28,19 @@ newsArray = [
     img: "./images/new-year.png",
     header: "Новогодние скидки в IT GAMER CLUB!",
     body: "Все цены снижены на 20% (до 08.01.2025)",
+    id: "1",
   },
   {
     img: "./images/team-spirit.jpeg",
     header: "Team Spirit чемпионы мажора по CS 2!",
     body: `15 декабря 2024 года российская команда Team Spirit стала чемпионом турнира Perfect World Shanghai Major 2024 по Counter-Strike 2. В финале она обыграла европейский коллектив FaZe Clan со счётом 2:1 по картам.`,
+    id: "2",
   },
   {
     img: "./images/stalkraft.png",
     header: "Новогоднее обновление STALKRAFT X!",
     body: `В игру добавились новый игровой режим "Буря", новогодние подарки и многое другое. Наряжайте ёлку и вперёд за подарками и артефактами! Играйте в STALKRAFT X в нашем клубе и получайте незабываемые эмоции!`,
+    id: "3",
   },
 ];
 
@@ -37,34 +52,76 @@ const clickRedactIcon = (button) => {
 
   let news = button.parentNode.parentNode;
 
-  let header = news.children[2];
-  let body = news.children[3];
+  let header = news.children[1];
+  let body = news.children[2];
 
   header.innerHTML = `<input class="input-text-header" type="text" value="${header.textContent}"/>`;
   body.innerHTML = `<textarea class="input-text-body">${body.textContent}</textarea>`;
 };
 
-const clickConfirmIcon = (button) => {
+const clickConfirmIcon = async (button) => {
   button.classList.add("none");
   button.parentNode.children[1].classList.remove("none");
 
   let news = button.parentNode.parentNode;
 
-  let header = news.children[2];
-  let body = news.children[3];
+  let id = news.id;
+
+  let header = news.children[1];
+  let body = news.children[2];
+
   header.innerHTML = `${header.firstChild.value}`;
   body.innerHTML = `${body.firstChild.value}`;
+
+  let redactNews = {
+    id: id,
+    title: header.firstChild.value,
+    body: body.firstChild.value,
+  };
+
+  const response = await fetch(URLForChangeNews, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      ...redactNews,
+    }),
+  });
+  const result = await response.json();
 };
 
-const clickTrashIcon = (button) => {
+const clickTrashIcon = async (button) => {
   let div = button.parentNode.parentNode;
   div.parentNode.removeChild(div);
+
+  let id = div.id;
+  console.log(id);
+
+  const response = await fetch(URLForDeleteNews + id);
+  const result = await response.json();
 };
 
-const clickPlusIcon = (button) => {
+const clickPlusIcon = async (button) => {
   let div = button.parentNode;
   addNewNews("Заголовок", "Содержание", "");
   div.parentNode.removeChild(div);
+
+  let news = {
+    title: "Заголовок",
+    body: "Содержание",
+  };
+
+  const response = await fetch(URLForAddNews, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      ...news,
+    }),
+  });
+  const result = await response.json();
   createPlusIcon();
 };
 
@@ -85,14 +142,16 @@ const createPlusIcon = () => {
   newsArea.appendChild(newNews);
 };
 
-const addNewNews = (headerContent, bodyContent, imgContent) => {
+const addNewNews = (headerContent, bodyContent, imgContent, id) => {
   const newsHeader = document.createElement("div");
   newsHeader.classList.add("news-header");
   newsHeader.innerHTML = headerContent;
 
+  // это не нужно
   const newsImg = document.createElement("img");
   newsImg.classList.add("news-img");
   newsImg.src = imgContent;
+  //
 
   const newsBody = document.createElement("div");
   newsBody.classList.add("news-body");
@@ -101,7 +160,8 @@ const addNewNews = (headerContent, bodyContent, imgContent) => {
   const news = document.createElement("div");
   news.classList.add("news");
   news.classList.add("news-animation");
-  news.appendChild(newsImg);
+  news.id = id;
+
   if (userRole == "admin" || userRole == "moderator") {
     const redactElements = document.createElement("div");
     redactElements.classList.add("redact-area");
@@ -133,6 +193,8 @@ const addNewNews = (headerContent, bodyContent, imgContent) => {
     redactElements.appendChild(trashIcon);
     news.appendChild(redactElements);
   }
+
+  // news.appendChild(newsImg);
   news.appendChild(newsHeader);
   news.appendChild(newsBody);
   newsArea.appendChild(news);
@@ -140,7 +202,12 @@ const addNewNews = (headerContent, bodyContent, imgContent) => {
 
 const addNews = () => {
   for (let i = 0; i < newsArray.length; i++) {
-    addNewNews(newsArray[i].header, newsArray[i].body, newsArray[i].img);
+    addNewNews(
+      newsArray[i].header,
+      newsArray[i].body,
+      newsArray[i].img,
+      newsArray[i].id
+    );
   }
   if (userRole == "moderator" || userRole == "admin") {
     createPlusIcon();
