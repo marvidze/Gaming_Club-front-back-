@@ -87,25 +87,25 @@ document.addEventListener("DOMContentLoaded", async () => {
 btnReservation.addEventListener("click", async () => {
   const selectedZone = document.querySelector("#form_zones input:checked");
   const selectedDay = document.querySelector("#form_dates input:checked");
-  const selectedTime = document.querySelector("#form_times input:checked");
-  console.log(selectedTime);
+  const selectedInputTime = document.querySelector("#form_times input:checked");
   let date = new Date();
 
-  // Форматируем дату в нужный формат
   const day = String(date.getDate() + parseInt(selectedDay.id)).padStart(2, "0");
 
-  // Формируем строку в нужном формате
-  // const resultDate = `${day} ${}`;
+  const selecteLabelTime = document.querySelector(`#form_times > label[for=#${selectedInputTime.id}]`);
+  const time = selecteLabelTime.textContent;
+  const hours = time.slice(0, 2);
+  const resultDate = `${day} ${hours}`;
 
-  // const response = await fetch(urlReservation, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({
-  //     zone: selectedZone.id,
-  //     date:          ,
-  //   }),
-  // });
-  // const result = await response.json();
+  const response = await fetch(urlReservation, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      zone: selectedZone.id,
+      date: resultDate,
+    }),
+  });
+  const result = await response.json();
 });
