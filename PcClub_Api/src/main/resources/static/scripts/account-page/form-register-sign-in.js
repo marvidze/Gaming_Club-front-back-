@@ -1,6 +1,7 @@
 const urlLog = "http://localhost:8080/auth";
 const urlReg = "http://localhost:8080/registration";
-const urlPicUpload = "http://localhost:8080/files/upload";
+const urlPicDownload = "http://localhost:8080/files/download";
+const urlPicUoload = "http://localhost:8080/files/upload";
 
 const sectionAuthorization = document.querySelector(".section_authorization");
 const sectionProfile = document.querySelector(".section_profile");
@@ -46,7 +47,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     accountName.innerText = decodedToken.sub;
     sectionAuthorization.classList.add("hide");
     sectionProfile.classList.remove("hide");
-    account_avatar.src = `../../../../../../../{decodedToken.iconURL}`;
   }
 });
 
@@ -72,6 +72,18 @@ signInFormElement.addEventListener("submit", async (event) => {
     localStorage.setItem("password", formDataObject.password);
     const decodedToken = parseJWT(result.token);
     accountName.innerText = decodedToken.sub;
+
+    const responseImg = await fetch(urlLog, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        url: decodedToken.iconUrl,
+      }),
+    });
+    const resultImg = await responseImg.blob();
+    console.log(resultImg);
 
     sectionAuthorization.classList.add("hide-trans");
     setTimeout(() => {
@@ -144,9 +156,8 @@ uploadAvatar.addEventListener("change", async function (event) {
 
   const response = await fetch(urlPicUpload, {
     method: "POST",
-    body: formData,
+    body: decodedToken.token,
   });
   const result = await response.text();
-
-  account_avatar.src = `../../../../../../../{result}`;
+  console.log(result);
 });
