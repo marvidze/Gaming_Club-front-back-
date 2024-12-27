@@ -135,8 +135,7 @@ const resetTable = () => {
 };
 
 const showAllusers = async () => {
-  const response = await fetch(url);
-  usersInfo = await response.json();
+  createUsersArray();
   for (let i = 0; i < usersInfo.length; i++) {
     insertRow(usersInfo[i]);
   }
@@ -163,5 +162,10 @@ buttonShowAll.addEventListener("click", () => {
   resetTable();
   showAllusers();
 });
+
+const createUsersArray = async () => {
+  const response = await fetch(url);
+  usersInfo = await response.json();
+};
 
 showAllusers();
