@@ -167,7 +167,7 @@ if (userRole == "ROLE_admin_user") {
   showAllusers();
 } else {
   document.getElementById("main").innerHTML = `
-    <div class="h">ПОШЁЛ НАХУЙ ОТСЮДА</div>
+    <div>ОШИБКА ДОСТУПА</div>
   `;
 }
 

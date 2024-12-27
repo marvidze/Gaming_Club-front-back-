@@ -101,8 +101,12 @@ input {
 }
 
 .h {
+  text-shadow: rgba(28, 72, 152, 1) 0px 0px 40px;
   color: white;
+  font-family: Arial;
+  font-weight: 800;
   font-size: 40pt;
+  margin-inline: auto;
 }
 
 table {
