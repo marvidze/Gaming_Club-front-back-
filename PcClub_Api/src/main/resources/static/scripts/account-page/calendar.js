@@ -51,6 +51,44 @@ const renderTimes = (element) => {
       arrayAllDates.splice(index, 1);
     }
   }
+document.addEventListener("DOMContentLoaded", async () => {
+  if (
+    localStorage.getItem("login") != null &&
+    localStorage.getItem("password") != null
+  ) {
+    let idForCheckbox = 0;
+
+    const selectedZone = document.querySelector("#form_zones input:checked");
+    let date = new Date();
+    const year = date.getFullYear().toString();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const resultDate = `${year}.${month}.${day}`;
+
+    console.log(urlGetTimes + selectedZone.id);
+//    const response = await fetch(urlGetTimes + selectedZone.id);
+//    const result = await response.json();
+//
+//    let arrayDates = result; // массив объектов
+
+    arrayDates = [
+      {
+        date: "27",
+        time: "1",
+      },
+      {
+        date: "27",
+        time: "2",
+      },
+      {
+        date: "27",
+        time: "3",
+      },
+      {
+        date: "27",
+        time: "4",
+      },
+    ];
 
   let timesRow = document.getElementById("times-row");
   let checkboxes = ``;

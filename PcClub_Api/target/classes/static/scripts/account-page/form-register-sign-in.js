@@ -45,6 +45,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (result.status == 200) {
       const decodedToken = parseJWT(result.token);
       accountName.innerText = decodedToken.sub;
+
+      const responseDownload = await fetch(urlPicDownload + "/" + result);
+      const resultDownload = await responseDownload.blob();
+      if (resultDownload != null) {
+        account_avatar.src = URL.createObjectURL(resultDownload);
+      }
+
       loader.classList.add("hide");
       sectionProfile.classList.remove("hide");
     } else {
@@ -53,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   } else {
     loader.classList.add("hide");
-    // sectionAuthorization.classList.remove("hide");
+    sectionAuthorization.classList.remove("hide");
   }
 });
 
@@ -80,17 +87,11 @@ signInFormElement.addEventListener("submit", async (event) => {
     const decodedToken = parseJWT(result.token);
     accountName.innerText = decodedToken.sub;
 
-    const responseImg = await fetch(urlLog, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        url: decodedToken.iconUrl,
-      }),
-    });
-    const resultImg = await responseImg.blob();
-    console.log(resultImg);
+    const responseDownload = await fetch(urlPicDownload + "/" + result);
+    const resultDownload = await responseDownload.blob();
+    if (resultDownload != null) {
+      account_avatar.src = URL.createObjectURL(resultDownload);
+    }
 
     sectionAuthorization.classList.add("hide-trans");
     setTimeout(() => {
@@ -130,6 +131,16 @@ registerFormElement.addEventListener("submit", async (event) => {
     localStorage.setItem("token", result.token);
     localStorage.setItem("login", formDataObject.login);
     localStorage.setItem("password", formDataObject.password);
+
+    const decodedToken = parseJWT(result.token);
+    accountName.innerText = decodedToken.sub;
+
+    const responseDownload = await fetch(urlPicDownload + "/" + result);
+    const resultDownload = await responseDownload.blob();
+    if (resultDownload != null) {
+      account_avatar.src = URL.createObjectURL(resultDownload);
+    }
+
     sectionAuthorization.classList.add("hide-trans");
     setTimeout(() => {
       sectionAuthorization.classList.add("hide");
@@ -164,8 +175,13 @@ uploadAvatar.addEventListener("change", async function (event) {
 
   const response = await fetch(urlPicUpload, {
     method: "POST",
-    body: decodedToken.token,
+    body: formData,
   });
   const result = await response.text();
-  console.log(result);
+
+  const responseDownload = await fetch(urlPicDownload + "/" + result);
+  const resultDownload = await responseDownload.blob();
+  if (resultDownload != null) {
+    account_avatar.src = URL.createObjectURL(resultDownload);
+  }
 });

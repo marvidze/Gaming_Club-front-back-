@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc0df3b-e9ff-4297-84ce-189673521548" name="Changes" comment="Дто для новых новосте и метод для добавления">
-      <change afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/DTOs/SlotResponseDto.java" afterDir="false" />
+    <list default="true" id="bfc0df3b-e9ff-4297-84ce-189673521548" name="Changes" comment="Функционал для бронирования, новые dto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/SlotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/SlotController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/DTOs/NewSlotDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/DTOs/NewSlotDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Entities/SlotReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Entities/SlotReservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Repositories/SlotRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Repositories/SlotRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/SlotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/SlotService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/FileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Utils/JwtTokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Utils/JwtTokenUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/form-register-sign-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/form-register-sign-in.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/pages/account-page.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/account-page/calendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/account-page/form-register-sign-in.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/account-page/calendar.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,17 +60,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.PcClubApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/Git repo/JavaLaba5&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.PcClubApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "G:/Git repo/JavaLaba5"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -139,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734990723772</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Функционал для бронирования, новые dto">
+      <option name="closed" value="true" />
+      <created>1735333592216</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1735333592216</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,7 +166,8 @@
     <MESSAGE value="Скелет для новостей" />
     <MESSAGE value="Функционал для управления новостями" />
     <MESSAGE value="Дто для новых новосте и метод для добавления" />
-    <option name="LAST_COMMIT_MESSAGE" value="Дто для новых новосте и метод для добавления" />
+    <MESSAGE value="Функционал для бронирования, новые dto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Функционал для бронирования, новые dto" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
