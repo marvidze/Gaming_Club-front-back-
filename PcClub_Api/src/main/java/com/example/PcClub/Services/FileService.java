@@ -7,10 +7,13 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.http.fileupload.util.Streams;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -25,6 +28,18 @@ public class FileService {
     private final UserRepository userRepository;
     @Value("${upload.path}")
     private String uploadPath;
+
+    public ResponseEntity<?> downloadFile(String file) throws IOException {
+        ClassPathResource imgFile = new ClassPathResource(file);
+
+        byte[] bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+        headers.setContentLength(imgFile.contentLength());
+
+        return new ResponseEntity<>(bytes, headers, HttpStatus.OK);
+    }
 
     @Transactional
     public ResponseEntity<?> uploadFile(MultipartFile file, String login) throws IOException {

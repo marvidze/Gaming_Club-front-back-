@@ -1,13 +1,29 @@
 let header = document.getElementById("header");
 
-const url = "";
-
-const getUserRole = async () => {
-  const response = await fetch(url);
-  const result = await response.json();
+const parseJWT = (token) => {
+  var base64Url = token.split(".")[1];
+  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  var jsonPayload = decodeURIComponent(
+    window
+      .atob(base64)
+      .split("")
+      .map(function (c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join("")
+  );
+  return JSON.parse(jsonPayload);
 };
 
-const currentUser = "admin";
+let currentUser;
+
+try {
+  const token = localStorage.getItem("token");
+  const decodedToken = parseJWT(token);
+  currentUser = decodedToken.roles[0];
+} catch {
+  currentUser = "ROLE_common_user";
+}
 
 const urlForLogo = "images/icons/icon-club.png";
 const urlForAccountPage = "account-page.html";
@@ -17,21 +33,6 @@ const urlLogoForIndex = "./";
 const urlLogoForPages = ".././";
 const urlPagesForIndex = "./pages/";
 const urlPagesForPages = "./";
-
-const htmlForAdmin = `<li class="header_dropdonw-menu-item-area">
-                      <div class="header_dropdown-menu-item-shadow">
-                        <a
-                          class="header_dropdonw-menu-item"
-                          href=${
-                            document.URL.includes("index")
-                              ? urlPagesForIndex + urlForUserTablePage
-                              : urlPagesForPages + urlForUserTablePage
-                          }
-                          >КЛИЕНТЫ</a
-                        >
-                      </div>
-                    </li>
-                   `;
 
 header.insertAdjacentHTML(
   "beforeend",
@@ -85,7 +86,24 @@ header.insertAdjacentHTML(
                         >
                       </div>
                     </li>
-                    ${currentUser == "admin" ? htmlForAdmin : ``}
+                    ${
+                      currentUser == "ROLE_admin_user"
+                        ? `<li class="header_dropdonw-menu-item-area">
+                      <div class="header_dropdown-menu-item-shadow">
+                        <a
+                          class="header_dropdonw-menu-item"
+                          href=${
+                            document.URL.includes("index")
+                              ? urlPagesForIndex + urlForUserTablePage
+                              : urlPagesForPages + urlForUserTablePage
+                          }
+                          >КЛИЕНТЫ</a
+                        >
+                      </div>
+                    </li>
+                   `
+                        : ``
+                    }
                     <li class="header_dropdonw-menu-item-area">
                       <div class="header_dropdown-menu-item-shadow">
                         <a
@@ -115,20 +133,20 @@ const btnAnimate = document.getElementById("btn-animate");
 document.addEventListener("DOMContentLoaded", () => {
   buttonMenu.addEventListener("click", () => {
     if (headerMenu.classList.contains("header_open")) {
-      if (currentUser == "admin") {
+      if (currentUser == "ROLE_admin_user") {
         btnAnimate.classList.remove("header_btn-open-admin");
-      } else if (currentUser == "moderator") {
-        btnAnimate.classList.remove("header_btn-open-moderator");
+      } else if (currentUser == "ROLE_moderator_user") {
+        btnAnimate.classList.remove("header_btn-open");
       } else {
         btnAnimate.classList.remove("header_btn-open");
       }
       headerMenu.classList.remove("header_open");
     } else {
       headerMenu.classList.add("header_open");
-      if (currentUser == "admin") {
+      if (currentUser == "ROLE_admin_user") {
         btnAnimate.classList.add("header_btn-open-admin");
-      } else if (currentUser == "moderator") {
-        btnAnimate.classList.add("header_btn-open-moderator");
+      } else if (currentUser == "ROLE_moderator_user") {
+        btnAnimate.classList.add("header_btn-open");
       } else {
         btnAnimate.classList.add("header_btn-open");
       }
