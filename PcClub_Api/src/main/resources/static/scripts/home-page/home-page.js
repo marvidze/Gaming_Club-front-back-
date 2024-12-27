@@ -1,10 +1,10 @@
 let newsArray = new Array();
 
 const URLForUserRole = "";
-const URLForNewsArray = "localhost:8080/news/getNLastNews?n=100";
-const URLForAddNews = "localhost:8080/news/addNews";
-const URLForChangeNews = "localhost:8080/news/update";
-const URLForDeleteNews = "localhost:8080/news/delete?id=";
+const URLForNewsArray = "http://localhost:8080/news/getNLastNews?n=100";
+const URLForAddNews = "http://localhost:8080/news/addNews";
+const URLForChangeNews = "http://localhost:8080/news/update";
+const URLForDeleteNews = "http://localhost:8080/news/delete?id=";
 
 let userRole;
 
