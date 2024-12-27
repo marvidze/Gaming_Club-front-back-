@@ -77,7 +77,9 @@ const clickTrashIcon = async (button) => {
   let id = div.id;
   console.log(id);
 
-  const response = await fetch(URLForDeleteNews + id);
+  const response = await fetch(URLForDeleteNews + id, {
+    method: "DELETE",
+  });
   const result = await response.json();
 };
 
