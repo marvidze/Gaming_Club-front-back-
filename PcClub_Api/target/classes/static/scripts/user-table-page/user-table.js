@@ -78,8 +78,9 @@ const deleteData = async (button) => {
 
   let userId = row.cells[0].firstChild.data;
 
-  const response = await fetch(urlDelete + userId);
-  const result = await response.json();
+  const response = await fetch(urlDelete + userId, {
+    method: "DELETE",
+  });
 };
 
 const editData = (button) => {
