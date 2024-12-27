@@ -55,6 +55,33 @@ const renderTimes = async (element) => {
       arrayAllDates.splice(index, 1);
     }
   }
+
+  let timesRow = document.getElementById("times-row");
+  let checkboxes = ``;
+
+  for (let i = 0; i < arrayAllDates.length; i++) {
+    let checkbox = `
+    <input
+      class="input_time"
+      type="checkbox"
+      id=${"time" + idForCheckbox}
+      hidden
+    />
+    <label class="label_time" for=${"time" + idForCheckbox}>
+      ${
+        arrayAllDates[i] < 10
+          ? "0" + arrayAllDates[i] + " : 00"
+          : arrayAllDates[i] + " : 00"
+      }
+    </label>
+    `;
+
+    idForCheckbox++;
+
+    checkboxes += checkbox;
+  }
+
+  timesRow.innerHTML = checkboxes;
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
