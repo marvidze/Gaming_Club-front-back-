@@ -27,19 +27,19 @@ const accountName = document.querySelector(".account_name");
 document.addEventListener("DOMContentLoaded", async function () {
   const login = localStorage.getItem("login");
   const password = localStorage.getItem("password");
-
-  const response = await fetch(urlLog, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      login: login,
-      password: password,
-    }),
-  });
-
-  const result = await response.json();
+  if (login !== null && password !== null) {
+    const response = await fetch(urlLog, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        login: login,
+        password: password,
+      }),
+    });
+    const result = await response.json();
+  }
 
   if (result.status === 200) {
     const decodedToken = parseJWT(result.token);
@@ -101,21 +101,22 @@ registerFormElement.addEventListener("submit", async (event) => {
       }),
     });
     const result = await response.json();
-
-    if (result.status == 200) {
-      localStorage.setItem("token", result.token);
-      localStorage.setItem("login", formDataObject.login);
-      localStorage.setItem("password", formDataObject.password);
-      sectionAuthorization.classList.add("hide-trans");
-      setTimeout(() => {
-        sectionAuthorization.classList.add("hide");
-        sectionProfile.classList.remove("hide");
-      }, 800);
-    } else {
-      errorMessage.textContent = "Логин занят.";
-      errorMessage.classList.remove("hide");
-    }
   } else {
+    errorMessage.textContent = "Пароли не совпадают.";
+    errorMessage.classList.remove("hide");
+  }
+
+  if (result.status == 200) {
+    localStorage.setItem("token", result.token);
+    localStorage.setItem("login", formDataObject.login);
+    localStorage.setItem("password", formDataObject.password);
+    sectionAuthorization.classList.add("hide-trans");
+    setTimeout(() => {
+      sectionAuthorization.classList.add("hide");
+      sectionProfile.classList.remove("hide");
+    }, 800);
+  } else {
+    errorMessage.textContent = "Логин занят.";
     errorMessage.classList.remove("hide");
   }
 });

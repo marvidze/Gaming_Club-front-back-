@@ -12,7 +12,7 @@
   <body>
     <div id="header"></div>
     <main>
-      <section class="section_authorization">
+      <section class="section_authorization hide">
         <div class="container">
           <div class="wrapper-login">
             <div class="form-box">
@@ -72,41 +72,71 @@
           </div>
         </div>
       </section>
-      <section class="section_profile hide">
+      <section class="section_profile">
         <div class="container">
           <div class="account_wrapper">
             <div class="account_wrapper-box">
               <div class="account_box-info">
                 <img class="account_avatar" src="../images/avatar-default.png" />
                 <h1 class="account_name">Lesnoy</h1>
-                <input id="upload-avatar" type="file" style="display: none" />
+                <input id="upload-avatar" type="file" hidden />
                 <label for="upload-avatar" class="btn_upload-avatar"> Загрузить фото </label>
               </div>
             </div>
             <div class="calendar_wrapper-box">
-              <div class="zones">
-                <div class="zone_classic selected_zone">Classic</div>
-                <div class="zone_comfort">Comfort</div>
-                <div class="zone_pro">PRO</div>
-              </div>
+              <form id="form_zones" action="#">
+                <div class="zone_row">
+                  <input class="input_zone" type="radio" id="classic" name="zones" hidden checked />
+                  <label class="label_zone" for="Classic">Classic</label>
 
-              <div class="date_row">
-                <div class="selected"></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
+                  <input class="input_zone" type="radio" id="comfort" name="zones" hidden />
+                  <label class="label_zone" for="Comfort">Comfort</label>
+
+                  <input class="input_zone" type="radio" id="pro" name="zones" hidden />
+                  <label class="label_zone" for="PRO">PRO</label>
+                </div>
+              </form>
+
+              <form id="form_dates" action="#">
+                <div class="date_row">
+                  <input class="input_date" type="radio" name="dates" id="0" hidden checked />
+                  <label class="label_date" for="0">23 дек.</label>
+
+                  <input class="input_date" type="radio" name="dates" id="1" hidden />
+                  <label class="label_date" for="1">23 дек.</label>
+
+                  <input class="input_date" type="radio" name="dates" id="2" hidden />
+                  <label class="label_date" for="2">23 дек.</label>
+
+                  <input class="input_date" type="radio" name="dates" id="3" hidden />
+                  <label class="label_date" for="3">23 дек.</label>
+
+                  <input class="input_date" type="radio" name="dates" id="4" hidden />
+                  <label class="label_date" for="4">23 дек.</label>
+
+                  <input class="input_date" type="radio" name="dates" id="5" hidden />
+                  <label class="label_date" for="5">23 дек.</label>
+
+                  <input class="input_date" type="radio" name="dates" id="6" hidden />
+                  <label class="label_date" for="6">23 дек.</label>
+                </div>
+              </form>
 
               <div class="times">
-                <form action="#">
-                  <label for="1" class="btn_times">00:00 <input type="checkbox" id="1" /></label>
-                  <label for="2" class="btn_times">00:00 <input type="checkbox" id="2" /></label>
-                  <label for="3" class="btn_times">00:00 <input type="checkbox" id="3" /></label>
-                  <label for="4" class="btn_times">00:00 <input type="checkbox" id="4" /></label>
-                  <label for="5" class="btn_times">00:00 <input type="checkbox" id="5" /></label>
+                <form action="#" id="form_times">
+                  <div class="times-row">
+                    <input class="input_time" type="checkbox" id="time1" hidden />
+                    <label class="label_time" for="time1">00:00 </label>
+
+                    <input class="input_time" type="checkbox" id="time2" hidden />
+                    <label class="label_time" for="time2">00:00 </label>
+
+                    <input class="input_time" type="checkbox" id="time3" hidden />
+                    <label class="label_time" for="time3">00:00 </label>
+
+                    <input class="input_time" type="checkbox" id="time4" hidden />
+                    <label class="label_time" for="time4">00:00 </label>
+                  </div>
                 </form>
               </div>
               <button class="btn_send-reservation">Забронировать</button>

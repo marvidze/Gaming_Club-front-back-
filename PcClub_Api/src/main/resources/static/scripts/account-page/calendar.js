@@ -1,38 +1,73 @@
+const urlGetTimes = "http://localhost:8080/slots/all";
+const urlReservation = "http://localhost:8080/slots/addSlot";
+
 const calendar = document.querySelector(".date_row");
-const calendarElements = document.querySelectorAll(".date_row div");
-const zones = document.querySelector(".zones");
-const zonesElements = document.querySelectorAll(".zones div");
+const arraySevenDays = document.querySelectorAll(".date_row label");
+const btnReservation = document.querySelector(".btn_send-reservation");
+
+const formZones = document.querySelector("#form_zones");
+const formDates = document.querySelector("#form_dates");
+const formTimes = document.querySelector("#form_times");
 
 const dateOptions = { day: "numeric", month: "short" };
 let currentDate = new Date();
 const dates = [];
-
 dates.push(new Date(currentDate.setDate(currentDate.getDate())));
 for (let i = 0; i < 6; i++) {
   dates.push(new Date(currentDate.setDate(currentDate.getDate() + 1)));
 }
 
-calendarElements.forEach((item, index) => {
+arraySevenDays.forEach((item, index) => {
   const formattedDate = dates[index].toLocaleString("ru-RU", dateOptions);
   item.innerText = formattedDate;
 });
 
-calendar.addEventListener("click", function (event) {
-  if (!event.target.classList.contains("date_row")) {
-    calendarElements.forEach((item) => {
-      item.classList.remove("selected");
-    });
+document.addEventListener("DOMContentLoaded", async () => {
+  const selectedZone = document.querySelector("#form_zones input:checked");
+  let date = new Date();
+  const year = date.getFullYear().toString();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const resultDate = `${year}.${month}.${day}`;
 
-    event.target.classList.add("selected");
-  }
+  const response = await fetch(urlGetTimes, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      zone: selectedZone.id,
+      date: resultDate,
+    }),
+  });
+  const result = await response.json();
+  console.log(result);
 });
 
-zones.addEventListener("click", function (event) {
-  if (!event.target.classList.contains("zones")) {
-    zonesElements.forEach((item) => {
-      item.classList.remove("selected_zone");
-    });
+btnReservation.addEventListener("click", async () => {
+  const selectedZone = document.querySelector("#form_zones input:checked");
+  const selectedDay = document.querySelector("#form_dates input:checked");
+  const arraySelectedTimes = document.querySelectorAll("#form_times input:checked");
 
-    event.target.classList.add("selected_zone");
-  }
+  let date = new Date();
+
+  // Форматируем дату в нужный формат
+  const year = date.getFullYear().toString();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate() + parseInt(selectedDay.id)).padStart(2, "0");
+
+  // Формируем строку в нужном формате
+  const resultDay = `${day}.${month}.${year}`;
+
+  // const response = await fetch(urlReservation, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({
+  //     zone: selectedZone.id,
+  //     date: ,
+  //   }),
+  // });
+  // const result = await response.json();
 });
