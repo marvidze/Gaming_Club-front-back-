@@ -20,19 +20,19 @@ let currentUser;
 window.onload = () => {
   const token = localStorage.getItem("token");
   const decodedToken = parseJWT(token);
-  currentUser = decodedToken.role;
-};
+  currentUser = decodedToken.roles[0];
+  console.log(currentUser);
 
-const urlForLogo = "images/icons/icon-club.png";
-const urlForAccountPage = "account-page.html";
-const urlForPricePage = "price-page.html";
-const urlForUserTablePage = "user-table-page.html";
-const urlLogoForIndex = "./";
-const urlLogoForPages = ".././";
-const urlPagesForIndex = "./pages/";
-const urlPagesForPages = "./";
+  const urlForLogo = "images/icons/icon-club.png";
+  const urlForAccountPage = "account-page.html";
+  const urlForPricePage = "price-page.html";
+  const urlForUserTablePage = "user-table-page.html";
+  const urlLogoForIndex = "./";
+  const urlLogoForPages = ".././";
+  const urlPagesForIndex = "./pages/";
+  const urlPagesForPages = "./";
 
-const htmlForAdmin = `<li class="header_dropdonw-menu-item-area">
+  const htmlForAdmin = `<li class="header_dropdonw-menu-item-area">
                       <div class="header_dropdown-menu-item-shadow">
                         <a
                           class="header_dropdonw-menu-item"
@@ -47,9 +47,9 @@ const htmlForAdmin = `<li class="header_dropdonw-menu-item-area">
                     </li>
                    `;
 
-header.insertAdjacentHTML(
-  "beforeend",
-  `<header class="header_area">
+  header.insertAdjacentHTML(
+    "beforeend",
+    `<header class="header_area">
         <div class="header_container">
           <div class="header_logo-area">
             <div class="header_icon-logo-shadow">
@@ -120,32 +120,33 @@ header.insertAdjacentHTML(
           </div>
         </div>
       </header>`
-);
+  );
 
-const buttonMenu = document.getElementById("button");
-const headerMenu = document.getElementById("header-menu");
-const btnAnimate = document.getElementById("btn-animate");
+  const buttonMenu = document.getElementById("button");
+  const headerMenu = document.getElementById("header-menu");
+  const btnAnimate = document.getElementById("btn-animate");
 
-document.addEventListener("DOMContentLoaded", () => {
-  buttonMenu.addEventListener("click", () => {
-    if (headerMenu.classList.contains("header_open")) {
-      if (currentUser == "admin") {
-        btnAnimate.classList.remove("header_btn-open-admin");
-      } else if (currentUser == "moderator") {
-        btnAnimate.classList.remove("header_btn-open-moderator");
+  document.addEventListener("DOMContentLoaded", () => {
+    buttonMenu.addEventListener("click", () => {
+      if (headerMenu.classList.contains("header_open")) {
+        if (currentUser == "admin") {
+          btnAnimate.classList.remove("header_btn-open-admin");
+        } else if (currentUser == "moderator") {
+          btnAnimate.classList.remove("header_btn-open-moderator");
+        } else {
+          btnAnimate.classList.remove("header_btn-open");
+        }
+        headerMenu.classList.remove("header_open");
       } else {
-        btnAnimate.classList.remove("header_btn-open");
+        headerMenu.classList.add("header_open");
+        if (currentUser == "admin") {
+          btnAnimate.classList.add("header_btn-open-admin");
+        } else if (currentUser == "moderator") {
+          btnAnimate.classList.add("header_btn-open-moderator");
+        } else {
+          btnAnimate.classList.add("header_btn-open");
+        }
       }
-      headerMenu.classList.remove("header_open");
-    } else {
-      headerMenu.classList.add("header_open");
-      if (currentUser == "admin") {
-        btnAnimate.classList.add("header_btn-open-admin");
-      } else if (currentUser == "moderator") {
-        btnAnimate.classList.add("header_btn-open-moderator");
-      } else {
-        btnAnimate.classList.add("header_btn-open");
-      }
-    }
+    });
   });
-});
+};

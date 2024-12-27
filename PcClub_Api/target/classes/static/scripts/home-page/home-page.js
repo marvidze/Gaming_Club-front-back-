@@ -8,11 +8,9 @@ const URLForDeleteNews = "http://localhost:8080/news/delete?id=";
 
 let userRole;
 
-window.onload = () => {
-  const token = localStorage.getItem("token");
-  const decodedToken = parseJWT(token);
-  userRole = decodedToken.role;
-};
+const token = localStorage.getItem("token");
+const decodedToken = parseJWT(token);
+userRole = decodedToken.roles[0];
 
 createNewsArray = async () => {
   response = await fetch(URLForNewsArray);
