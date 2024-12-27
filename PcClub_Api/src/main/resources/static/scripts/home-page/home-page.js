@@ -143,7 +143,7 @@ const addNewNews = (headerContent, bodyContent, imgContent, id) => {
   news.classList.add("news-animation");
   news.id = id;
 
-  if (userRole == "admin" || userRole == "moderator") {
+  if (userRole == "ROLE_admin_user" || userRole == "ROLE_moderator_userator") {
     const redactElements = document.createElement("div");
     redactElements.classList.add("redact-area");
 
@@ -189,7 +189,7 @@ const addNews = () => {
       newsArray[i].id
     );
   }
-  if (userRole == "moderator" || userRole == "admin") {
+  if (userRole == "ROLE_moderator_userator" || userRole == "ROLE_admin_user") {
     createPlusIcon();
   }
 };
