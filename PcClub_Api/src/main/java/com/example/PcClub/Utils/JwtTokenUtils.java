@@ -33,7 +33,7 @@ public class JwtTokenUtils {
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
         claims.put("roles", rolesList);
-        claims.put("iconUrl", (uploadPath + "\\" + user.getProfile_icon_url()));
+        claims.put("iconUrl", (user.getProfile_icon_url()));
 
         Date issuedDate = new Date();
         Date expiredDate =  new Date(issuedDate.getTime() + expiration.toMillis());

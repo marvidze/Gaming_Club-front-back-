@@ -72,7 +72,7 @@
           </div>
         </div>
       </section>
-      <section class="section_profile">
+      <section class="section_profile hide">
         <div class="container">
           <div class="account_wrapper">
             <div class="account_wrapper-box">
@@ -124,19 +124,7 @@
 
               <div class="times">
                 <form action="#" id="form_times">
-                  <div class="times-row">
-                    <input class="input_time" type="checkbox" id="time1" hidden />
-                    <label class="label_time" for="time1">00:00 </label>
-
-                    <input class="input_time" type="checkbox" id="time2" hidden />
-                    <label class="label_time" for="time2">00:00 </label>
-
-                    <input class="input_time" type="checkbox" id="time3" hidden />
-                    <label class="label_time" for="time3">00:00 </label>
-
-                    <input class="input_time" type="checkbox" id="time4" hidden />
-                    <label class="label_time" for="time4">00:00 </label>
-                  </div>
+                  <div id="times-row" class="times-row"></div>
                 </form>
               </div>
               <button class="btn_send-reservation">Забронировать</button>

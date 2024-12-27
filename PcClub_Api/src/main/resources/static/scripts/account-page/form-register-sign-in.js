@@ -45,6 +45,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (result.status == 200) {
       const decodedToken = parseJWT(result.token);
       accountName.innerText = decodedToken.sub;
+
+      const responseDownload = await fetch(urlPicDownload + "/" + result);
+      const resultDownload = await responseDownload.blob();
+      if (resultDownload != null) {
+        account_avatar.src = URL.createObjectURL(resultDownload);
+      }
+
       loader.classList.add("hide");
       sectionProfile.classList.remove("hide");
     } else {
@@ -53,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   } else {
     loader.classList.add("hide");
-    // sectionAuthorization.classList.remove("hide");
+    sectionAuthorization.classList.remove("hide");
   }
 });
 
@@ -164,8 +171,11 @@ uploadAvatar.addEventListener("change", async function (event) {
 
   const response = await fetch(urlPicUpload, {
     method: "POST",
-    body: decodedToken.token,
+    body: formData,
   });
   const result = await response.text();
-  console.log(result);
+
+  const responseDownload = await fetch(urlPicDownload + "/" + result);
+  const resultDownload = await responseDownload.blob();
+  account_avatar.src = URL.createObjectURL(resultDownload);
 });

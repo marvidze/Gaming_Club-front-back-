@@ -20,8 +20,7 @@ public class SlotReservation {
 
     @Nullable
     @Column(name = "date")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-    private Date date;
+    private String date;
 
     @Nullable
     @Column(name = "zone")

@@ -23,7 +23,12 @@ arraySevenDays.forEach((item, index) => {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
-  if (localStorage.getItem("login") != null && localStorage.getItem("password") != null) {
+  if (
+    localStorage.getItem("login") != null &&
+    localStorage.getItem("password") != null
+  ) {
+    let idForCheckbox = 0;
+
     const selectedZone = document.querySelector("#form_zones input:checked");
     let date = new Date();
     const year = date.getFullYear().toString();
@@ -31,29 +36,76 @@ document.addEventListener("DOMContentLoaded", async () => {
     const day = String(date.getDate()).padStart(2, "0");
     const resultDate = `${year}.${month}.${day}`;
 
-    const response = await fetch(urlGetTimes + selectedZone.id);
-    const result = await response.json();
+    console.log(urlGetTimes + selectedZone.id);
+//    const response = await fetch(urlGetTimes + selectedZone.id);
+//    const result = await response.json();
+//
+//    let arrayDates = result; // массив объектов
 
-    const arrayDates = result; // массив объектов
-    //
+    arrayDates = [
+      {
+        date: "27",
+        time: "1",
+      },
+      {
+        date: "27",
+        time: "2",
+      },
+      {
+        date: "27",
+        time: "3",
+      },
+      {
+        date: "27",
+        time: "4",
+      },
+    ];
 
-    /////////////////////////////       сюда
+    let timesRow = document.getElementById("times-row");
+    let checkboxes = ``;
 
-    //
+    for (let i = 0; i < arrayDates.length; i++) {
+      let checkbox = `
+      <input
+        class="input_time"
+        type="checkbox"
+        id=${"time" + idForCheckbox}
+        hidden
+      />
+      <label class="label_time" for=${"time" + idForCheckbox}>
+        ${
+          arrayDates[i].time < 10
+            ? "0" + arrayDates[i].time + " : 00"
+            : arrayDates[i].time + " : 00"
+        }
+      </label>
+      `;
+
+      idForCheckbox++;
+
+      checkboxes += checkbox;
+    }
+
+    timesRow.innerHTML = checkboxes;
   }
 });
 
 btnReservation.addEventListener("click", async () => {
   const selectedZone = document.querySelector("#form_zones input:checked");
   const selectedDay = document.querySelector("#form_dates input:checked");
-  const arraySelectedTimes = document.querySelectorAll("#form_times input:checked");
+  const arraySelectedTimes = document.querySelectorAll(
+    "#form_times input:checked"
+  );
 
   let date = new Date();
 
   // Форматируем дату в нужный формат
   const year = date.getFullYear().toString();
   const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate() + parseInt(selectedDay.id)).padStart(2, "0");
+  const day = String(date.getDate() + parseInt(selectedDay.id)).padStart(
+    2,
+    "0"
+  );
 
   // Формируем строку в нужном формате
   const resultDay = `${day}.${month}.${year}`;

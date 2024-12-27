@@ -4,50 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc0df3b-e9ff-4297-84ce-189673521548" name="Changes" comment="Дто для новых новосте и метод для добавления">
-      <change afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/SlotController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/DTOs/NewSlotDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Entities/SlotReservation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Repositories/SlotRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/SlotService.java" afterDir="false" />
+    <list default="true" id="bfc0df3b-e9ff-4297-84ce-189673521548" name="Changes" comment="Функционал для бронирования, новые dto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/FileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Utils/JwtTokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Utils/JwtTokenUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/form-register-sign-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/form-register-sign-in.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/account-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/avatar-default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/bg-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/comfort-zone-pc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/default-zone-pc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/icons/icon-change.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/icons/icon-club.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/icons/icon-confirm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/icons/icon-plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/icons/icon-search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/icons/icon-trash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/new-year.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/placekitten.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/pro-zone-pc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/stalkraft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/images/team-spirit.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/pages/account-page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/pages/price-page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/pages/user-table-page.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/account-page/calendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/account-page/form-register-sign-in.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/components/header-component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/home-page/home-page.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/user-table-page/user-table.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/account-page/account-page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/account-page/calendar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/account-page/main_account-page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/base/base.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/base/header.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/home-page/home-page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/home-page/main_home-page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/home-page/news.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/price-page/main_price-page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/price-page/price-page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/user-table-page/user-table-page.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734990723772</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Функционал для бронирования, новые dto">
+      <option name="closed" value="true" />
+      <created>1735333592216</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1735333592216</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,7 +166,8 @@
     <MESSAGE value="Скелет для новостей" />
     <MESSAGE value="Функционал для управления новостями" />
     <MESSAGE value="Дто для новых новосте и метод для добавления" />
-    <option name="LAST_COMMIT_MESSAGE" value="Дто для новых новосте и метод для добавления" />
+    <MESSAGE value="Функционал для бронирования, новые dto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Функционал для бронирования, новые dto" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -201,11 +176,6 @@
           <url>file://$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/NewsController.java</url>
           <line>30</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/SlotService.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
