@@ -23,6 +23,8 @@ arraySevenDays.forEach((item, index) => {
 });
 
 const renderTimes = async (element) => {
+    const selectedZone = document.querySelector("#form_zones input:checked");
+
   let arrayAllDates = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 
   let date = new Date();
@@ -67,23 +69,6 @@ const renderTimes = async (element) => {
   timesRow.innerHTML = checkboxes;
 };
 
-document.addEventListener("DOMContentLoaded", async () => {
-  if (localStorage.getItem("login") != null && localStorage.getItem("password") != null) {
-    const selectedZone = document.querySelector("#form_zones input:checked");
-    let date = new Date();
-    const year = date.getFullYear().toString();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-    const resultDate = `${year}.${month}.${day}`;
-
-    const response = await fetch(urlGetTimes + selectedZone.id);
-    const result = await response.json();
-
-    let arrayDates = result;
-    const selectedDay = document.querySelector("#form_dates input:checked");
-  }
-});
-
 btnReservation.addEventListener("click", async () => {
   const selectedZone = document.querySelector("#form_zones input:checked");
   const selectedDay = document.querySelector("#form_dates input:checked");
@@ -92,10 +77,15 @@ btnReservation.addEventListener("click", async () => {
 
   const day = String(date.getDate() + parseInt(selectedDay.id)).padStart(2, "0");
 
-  const selecteLabelTime = document.querySelector(`#form_times > label[for=#${selectedInputTime.id}]`);
-  const time = selecteLabelTime.textContent;
-  const hours = time.slice(0, 2);
+console.log(`for=#${selectedInputTime.id}`);
+  const selectLabelTime = document.querySelector(`label[for="${selectedInputTime.id}"]`);
+  const time = selectLabelTime.textContent;
+  console.log(time);
+  const parts = time.split(":");
+  const hours = parts[0].replace(/\b0+(?=\d)/g, '').replace(/\s/g, '');
+  console.log(hours);
   const resultDate = `${day} ${hours}`;
+  console.log(resultDate);
 
   const response = await fetch(urlReservation, {
     method: "POST",

@@ -52,10 +52,16 @@ public class AuthService {
         }
         User user = userService.createNewUser(registrationUserDto);
 
+        UserDetails userDetails = userService.loadUserByUsername(user.getLogin());
+        User userDB = userService.findByLogin(userDetails.getUsername()).orElseThrow(()-> new UsernameNotFoundException(
+                String.format("Пользователь '%s' не найден")));
+        String token = jwtTokenUtils.generateToken(userDetails, userDB);
+
         return ResponseEntity.ok(
                 new UserDto(
                         user.getId(),
-                        user.getLogin()
+                        user.getLogin(),
+                        token
                 ));
     }
 }
