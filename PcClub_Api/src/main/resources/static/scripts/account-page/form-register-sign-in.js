@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   } else {
     loader.classList.add("hide");
-    sectionAuthorization.classList.remove("hide");
+    // sectionAuthorization.classList.remove("hide");
   }
 });
 
@@ -108,7 +108,7 @@ registerFormElement.addEventListener("submit", async (event) => {
   errorMessage.classList.add("hide");
   const formData = new FormData(registerFormElement);
   const formDataObject = Object.fromEntries(formData);
-
+  const result;
   if (formDataObject.password == formDataObject.repeatPassword) {
     const response = await fetch(urlReg, {
       method: "POST",
@@ -119,7 +119,7 @@ registerFormElement.addEventListener("submit", async (event) => {
         ...formDataObject,
       }),
     });
-    const result = await response.json();
+    result = await response.json();
   } else {
     errorMessage.textContent = "Пароли не совпадают.";
     errorMessage.classList.remove("hide");
