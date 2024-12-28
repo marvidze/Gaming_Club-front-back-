@@ -100,7 +100,6 @@ signInFormElement.addEventListener("submit", async (event) => {
   } else {
     errorMessage.textContent = "Логин или пароль неверный!";
     errorMessage.classList.remove("hide");
-    s;
   }
 });
 
@@ -183,4 +182,14 @@ uploadAvatar.addEventListener("change", async function (event) {
   if (resultDownload != null) {
     account_avatar.src = URL.createObjectURL(resultDownload);
   }
+});
+
+const buttonExit = document.getElementById("btn_exit");
+buttonExit.addEventListener("click", () => {
+  sectionAuthorization.classList.remove("hide");
+  sectionProfile.classList.add("hide");
+  localStorage.removeItem("token");
+  localStorage.removeItem("login");
+  localStorage.removeItem("password");
+  window.location.reload();
 });

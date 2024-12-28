@@ -31,10 +31,10 @@
 }
 
 .title {
-  font-family: "Bungee Inline", sans-serif;
+  font-family: Arial;
   font-size: 18pt;
-  color: #fff;
-  font-weight: 500;
+  font-weight: 800;
+  color: white;
   text-align: center;
   letter-spacing: 0.1em;
 }
@@ -127,6 +127,8 @@
 }
 
 .error_message {
+  font-family: Arial;
+  font-weight: bold;
   font-size: 14px;
   color: rgba(248, 6, 6, 0.64);
   margin: 10px auto;
@@ -142,6 +144,7 @@
 
 .account_wrapper {
   display: flex;
+  position: relative;
   justify-content: space-around;
   margin-top: 150px;
   box-shadow: 0px 0px 40px 10px rgb(0, 0, 0);
@@ -164,7 +167,10 @@
 }
 
 .account_name {
-  color: #fff;
+  font-family: Arial;
+  font-size: 18pt;
+  font-weight: 800;
+  color: white;
 }
 
 .account_avatar {
@@ -176,7 +182,10 @@
 
 .btn_upload-avatar {
   position: relative;
-  color: #fff;
+  font-family: Arial;
+  font-size: 15pt;
+  font-weight: 800;
+  color: white;
   margin: 0 auto;
   background-color: rgba(29, 1, 47, 0.303);
   cursor: pointer;
@@ -219,4 +228,29 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.btn_exit {
+  position: absolute;
+  font-family: Arial;
+  font-size: 6pt;
+  font-weight: 800;
+  color: white;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  text-shadow: rgba(28, 72, 152, 1) 0px 0px 40px;
+  transition: 0.2s;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.692);
+  border-radius: 100%;
+  margin: 5px;
+}
+
+.btn_exit:hover {
+  color: rgb(159, 15, 15);
+  background-color: rgb(159, 15, 15);
 }
