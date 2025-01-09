@@ -77,7 +77,6 @@ btnReservation.addEventListener("click", async () => {
 
   const day = String(date.getDate() + parseInt(selectedDay.id)).padStart(2, "0");
 
-console.log(`for=#${selectedInputTime.id}`);
   const selectLabelTime = document.querySelector(`label[for="${selectedInputTime.id}"]`);
   const time = selectLabelTime.textContent;
   console.log(time);
@@ -98,4 +97,5 @@ console.log(`for=#${selectedInputTime.id}`);
     }),
   });
   const result = await response.json();
+  location.reload();
 });

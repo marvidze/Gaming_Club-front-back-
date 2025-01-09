@@ -21,6 +21,7 @@ const registerFormElement = document.querySelector(".form-reg");
 const account_avatar = document.querySelector(".account_avatar");
 
 const errorMessage = document.querySelector(".error_message");
+const errorMessageReg = document.querySelector(".error_message_reg");
 
 const uploadAvatar = document.getElementById("upload-avatar");
 
@@ -98,6 +99,7 @@ signInFormElement.addEventListener("submit", async (event) => {
       sectionAuthorization.classList.add("hide");
       sectionProfile.classList.remove("hide");
     }, 800);
+    location.reload();
   } else {
     errorMessage.textContent = "Логин или пароль неверный!";
     errorMessage.classList.remove("hide");
@@ -123,8 +125,8 @@ registerFormElement.addEventListener("submit", async (event) => {
     });
     result = await response.json();
   } else {
-    errorMessage.textContent = "Пароли не совпадают.";
-    errorMessage.classList.remove("hide");
+    errorMessageReg.textContent = "Пароли не совпадают.";
+    errorMessageReg.classList.remove("hide");
   }
 
   if (response.status == 200) {
@@ -132,13 +134,17 @@ registerFormElement.addEventListener("submit", async (event) => {
     localStorage.setItem("login", formDataObject.login);
     localStorage.setItem("password", formDataObject.password);
 
+    const decodedToken = parseJWT(result.token);
     accountName.innerText = decodedToken.sub;
 
-
+    let responseDownload;
+    let resultDownload;
+    if(decodedToken.iconUrl != null) {
+      responseDownload = await fetch(urlPicDownload + "/" + decodedToken.iconUrl);
+      resultDownload = await responseDownload.blob();
+    }
     if (resultDownload != null) {
-        const responseDownload = await fetch(urlPicDownload + "/" + decodedToken.iconUrl);
-        const resultDownload = await responseDownload.blob();
-        account_avatar.src = URL.createObjectURL(resultDownload);
+      account_avatar.src = URL.createObjectURL(resultDownload);
     }
 
     sectionAuthorization.classList.add("hide-trans");
@@ -147,8 +153,8 @@ registerFormElement.addEventListener("submit", async (event) => {
       sectionProfile.classList.remove("hide");
     }, 800);
   } else {
-    errorMessage.textContent = "Логин занят.";
-    errorMessage.classList.remove("hide");
+    errorMessageReg.textContent = "Логин занят.";
+    errorMessageReg.classList.remove("hide");
   }
 });
 

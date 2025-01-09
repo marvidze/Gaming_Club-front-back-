@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc0df3b-e9ff-4297-84ce-189673521548" name="Changes" comment="Загрузка иконки юзреа">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/DTOs/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/DTOs/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Services/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/pages/account-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/pages/account-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/calendar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/form-register-sign-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/scripts/account-page/form-register-sign-in.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/pages/account-page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/account-page/calendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/account-page/form-register-sign-in.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/account-page/account-page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/styles/account-page/calendar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/styles/account-page/account-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/PcClub_Api/src/main/resources/static/styles/account-page/account-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcClub_Api/target/classes/static/scripts/user-table-page/user-table.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,16 +178,5 @@
     <MESSAGE value="Функционал для бронирования, новые dto" />
     <MESSAGE value="Загрузка иконки юзреа" />
     <option name="LAST_COMMIT_MESSAGE" value="Загрузка иконки юзреа" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/PcClub_Api/src/main/java/com/example/PcClub/Controllers/NewsController.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

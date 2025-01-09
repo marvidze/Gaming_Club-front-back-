@@ -27,7 +27,7 @@ public class UserController {
         return ResponseEntity.ok(userService.getNUsers(n));
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public ResponseEntity<?> deleteUser(@RequestParam int id) {
         Optional<User> user = userService.deleteUser(id);
 

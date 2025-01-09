@@ -134,6 +134,14 @@
   margin: 10px auto;
 }
 
+.error_message_reg {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 14px;
+  color: rgba(248, 6, 6, 0.64);
+  margin: 10px auto;
+}
+
 .btn-submit:active {
   opacity: 0.8;
 }
