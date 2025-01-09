@@ -3,16 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="../styles/account-page/main_account-page.css"
-    />
+    <link rel="stylesheet" href="../styles/account-page/main_account-page.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet" />
     <title>Sign in</title>
   </head>
   <body>
@@ -32,12 +26,7 @@
                 </div>
 
                 <div class="input-box">
-                  <input
-                    name="password"
-                    type="password"
-                    minlength="4"
-                    required
-                  />
+                  <input name="password" type="password" minlength="4" required />
                   <span>Password</span>
                   <i></i>
                 </div>
@@ -60,23 +49,13 @@
                 </div>
 
                 <div class="input-box">
-                  <input
-                    name="password"
-                    type="password"
-                    minlength="4"
-                    required
-                  />
+                  <input name="password" type="password" minlength="4" required />
                   <span>Password</span>
                   <i></i>
                 </div>
 
                 <div class="input-box">
-                  <input
-                    name="repeatPassword"
-                    type="password"
-                    minlength="4"
-                    required
-                  />
+                  <input name="repeatPassword" type="password" minlength="4" required />
                   <span>Repeat password</span>
                   <i></i>
                 </div>
@@ -93,146 +72,53 @@
           </div>
         </div>
       </section>
-      <section class="section_profile">
+      <section class="section_profile hide">
         <div class="container">
           <div class="account_wrapper">
             <div class="account_wrapper-box">
               <div class="account_box-info">
-                <img
-                  class="account_avatar"
-                  src="../images/avatar-default.png"
-                />
+                <img class="account_avatar" src="../images/avatar-default.png" />
                 <h1 class="account_name">Lesnoy</h1>
                 <input id="upload-avatar" type="file" hidden />
-                <label for="upload-avatar" class="btn_upload-avatar">
-                  Загрузить фото
-                </label>
+                <label for="upload-avatar" class="btn_upload-avatar"> Загрузить фото </label>
               </div>
             </div>
             <div class="calendar_wrapper-box">
               <form id="form_zones" action="#">
                 <div class="zone_row">
-                  <input
-                    class="input_zone"
-                    type="radio"
-                    id="classic"
-                    name="zones"
-                    hidden
-                  />
+                  <input class="input_zone" type="radio" id="classic" name="zones" hidden />
                   <label class="label_zone" for="classic">Classic</label>
 
-                  <input
-                    class="input_zone"
-                    type="radio"
-                    id="comfort"
-                    name="zones"
-                    hidden
-                  />
+                  <input class="input_zone" type="radio" id="comfort" name="zones" hidden />
                   <label class="label_zone" for="comfort">Comfort</label>
 
-                  <input
-                    class="input_zone"
-                    type="radio"
-                    id="pro"
-                    name="zones"
-                    hidden
-                  />
+                  <input class="input_zone" type="radio" id="pro" name="zones" hidden />
                   <label class="label_zone" for="pro">PRO</label>
                 </div>
               </form>
 
               <form id="form_dates" action="#">
                 <div class="date_row">
-                  <input
-                    class="input_date"
-                    type="radio"
-                    name="dates"
-                    id="0"
-                    hidden
-                  />
-                  <label
-                    class="label_date"
-                    for="0"
-                    onclick="renderTimes(this)"
-                  ></label>
+                  <input class="input_date" type="radio" name="dates" id="0" hidden />
+                  <label class="label_date" for="0" onclick="renderTimes(this)"></label>
 
-                  <input
-                    class="input_date"
-                    type="radio"
-                    name="dates"
-                    id="1"
-                    hidden
-                  />
-                  <label
-                    class="label_date"
-                    for="1"
-                    onclick="renderTimes(this)"
-                  ></label>
+                  <input class="input_date" type="radio" name="dates" id="1" hidden />
+                  <label class="label_date" for="1" onclick="renderTimes(this)"></label>
 
-                  <input
-                    class="input_date"
-                    type="radio"
-                    name="dates"
-                    id="2"
-                    hidden
-                  />
-                  <label
-                    class="label_date"
-                    for="2"
-                    onclick="renderTimes(this)"
-                  ></label>
+                  <input class="input_date" type="radio" name="dates" id="2" hidden />
+                  <label class="label_date" for="2" onclick="renderTimes(this)"></label>
 
-                  <input
-                    class="input_date"
-                    type="radio"
-                    name="dates"
-                    id="3"
-                    hidden
-                  />
-                  <label
-                    class="label_date"
-                    for="3"
-                    onclick="renderTimes(this)"
-                  ></label>
+                  <input class="input_date" type="radio" name="dates" id="3" hidden />
+                  <label class="label_date" for="3" onclick="renderTimes(this)"></label>
 
-                  <input
-                    class="input_date"
-                    type="radio"
-                    name="dates"
-                    id="4"
-                    hidden
-                  />
-                  <label
-                    class="label_date"
-                    for="4"
-                    onclick="renderTimes(this)"
-                  ></label>
+                  <input class="input_date" type="radio" name="dates" id="4" hidden />
+                  <label class="label_date" for="4" onclick="renderTimes(this)"></label>
 
-                  <input
-                    class="input_date"
-                    type="radio"
-                    name="dates"
-                    id="5"
-                    hidden
-                  />
-                  <label
-                    class="label_date"
-                    for="5"
-                    onclick="renderTimes(this)"
-                  ></label>
+                  <input class="input_date" type="radio" name="dates" id="5" hidden />
+                  <label class="label_date" for="5" onclick="renderTimes(this)"></label>
 
-                  <input
-                    class="input_date"
-                    type="radio"
-                    name="dates"
-                    id="6"
-                    hidden
-                  />
-                  <label
-                    class="label_date"
-                    for="6"
-                    onclick="renderTimes(this)"
-                  ></label>
+                  <input class="input_date" type="radio" name="dates" id="6" hidden />
+                  <label class="label_date" for="6" onclick="renderTimes(this)"></label>
                 </div>
               </form>
               <div class="times">
@@ -241,11 +127,11 @@
                 </form>
               </div>
               <button class="btn_send-reservation">Забронировать</button>
+              <div id="btn_exit" class="btn_exit"></div>
             </div>
           </div>
         </div>
       </section>
-      <div id="btn_exit" class="btn_exit">Выйти из аккаунта</div>
     </main>
     <div class="loader">
       <div class="inner one"></div>

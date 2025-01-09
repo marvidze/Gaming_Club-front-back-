@@ -46,13 +46,12 @@ document.addEventListener("DOMContentLoaded", async function () {
       const decodedToken = parseJWT(result.token);
       accountName.innerText = decodedToken.sub;
 
-      const responseDownload = await fetch(
-        urlPicDownload + "/" + decodedToken.iconUrl
-      );
-      const resultDownload = await responseDownload.blob();
-      if (resultDownload != null) {
-        account_avatar.src = URL.createObjectURL(resultDownload);
-      }
+       if (decodedToken.iconUrl != null) {
+            const responseDownload = await fetch(urlPicDownload + "/" + decodedToken.iconUrl);
+            const resultDownload = await responseDownload.blob();
+            account_avatar.src = URL.createObjectURL(resultDownload);
+       }
+
 
       loader.classList.add("hide");
       sectionProfile.classList.remove("hide");
@@ -62,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   } else {
     loader.classList.add("hide");
-    // sectionAuthorization.classList.remove("hide");
+    sectionAuthorization.classList.remove("hide");
   }
 });
 
@@ -88,12 +87,10 @@ signInFormElement.addEventListener("submit", async (event) => {
     const decodedToken = parseJWT(result.token);
     accountName.innerText = decodedToken.sub;
 
-    const responseDownload = await fetch(
-      urlPicDownload + "/" + decodedToken.iconUrl
-    );
-    const resultDownload = await responseDownload.blob();
-    if (resultDownload != null) {
-      account_avatar.src = URL.createObjectURL(resultDownload);
+    if (decodedToken.iconUrl != null) {
+        const responseDownload = await fetch(urlPicDownload + "/" + decodedToken.iconUrl);
+        const resultDownload = await responseDownload.blob();
+        account_avatar.src = URL.createObjectURL(resultDownload);
     }
 
     sectionAuthorization.classList.add("hide-trans");
@@ -104,7 +101,6 @@ signInFormElement.addEventListener("submit", async (event) => {
   } else {
     errorMessage.textContent = "Логин или пароль неверный!";
     errorMessage.classList.remove("hide");
-    s;
   }
 });
 
@@ -113,9 +109,10 @@ registerFormElement.addEventListener("submit", async (event) => {
   errorMessage.classList.add("hide");
   const formData = new FormData(registerFormElement);
   const formDataObject = Object.fromEntries(formData);
-
+  let result;
+  let response;
   if (formDataObject.password == formDataObject.repeatPassword) {
-    const response = await fetch(urlReg, {
+      response = await fetch(urlReg, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -124,26 +121,24 @@ registerFormElement.addEventListener("submit", async (event) => {
         ...formDataObject,
       }),
     });
-    const result = await response.json();
+    result = await response.json();
   } else {
     errorMessage.textContent = "Пароли не совпадают.";
     errorMessage.classList.remove("hide");
   }
 
-  if (result.status == 200) {
+  if (response.status == 200) {
     localStorage.setItem("token", result.token);
     localStorage.setItem("login", formDataObject.login);
     localStorage.setItem("password", formDataObject.password);
 
-    const decodedToken = parseJWT(result.token);
     accountName.innerText = decodedToken.sub;
 
-    const responseDownload = await fetch(
-      urlPicDownload + "/" + decodedToken.iconUrl
-    );
-    const resultDownload = await responseDownload.blob();
+
     if (resultDownload != null) {
-      account_avatar.src = URL.createObjectURL(resultDownload);
+        const responseDownload = await fetch(urlPicDownload + "/" + decodedToken.iconUrl);
+        const resultDownload = await responseDownload.blob();
+        account_avatar.src = URL.createObjectURL(resultDownload);
     }
 
     sectionAuthorization.classList.add("hide-trans");
@@ -192,8 +187,9 @@ uploadAvatar.addEventListener("change", async function (event) {
 });
 
 const buttonExit = document.getElementById("btn_exit");
-
 buttonExit.addEventListener("click", () => {
+  sectionAuthorization.classList.remove("hide");
+  sectionProfile.classList.add("hide");
   localStorage.removeItem("token");
   localStorage.removeItem("login");
   localStorage.removeItem("password");

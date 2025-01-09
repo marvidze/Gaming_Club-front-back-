@@ -144,6 +144,7 @@
 
 .account_wrapper {
   display: flex;
+  position: relative;
   justify-content: space-around;
   margin-top: 150px;
   box-shadow: 0px 0px 40px 10px rgb(0, 0, 0);
@@ -230,21 +231,26 @@
 }
 
 .btn_exit {
-  margin-inline: auto;
-  margin-top: 20px;
+  position: absolute;
   font-family: Arial;
-  font-size: 11pt;
+  font-size: 6pt;
   font-weight: 800;
   color: white;
-  height: 40px;
-  width: 200px;
   color: white;
   text-align: center;
   cursor: pointer;
   text-shadow: rgba(28, 72, 152, 1) 0px 0px 40px;
   transition: 0.2s;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.692);
+  border-radius: 100%;
+  margin: 5px;
 }
 
 .btn_exit:hover {
-  color: rgba(28, 72, 152, 1);
+  color: rgb(159, 15, 15);
+  background-color: rgb(159, 15, 15);
 }
